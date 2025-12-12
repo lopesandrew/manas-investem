@@ -221,6 +221,73 @@ app.get('/api/verificar-sessao', (req, res) => {
 });
 
 // =====================
+// ROTAS DE ADMIN
+// =====================
+
+// Middleware para verificar chave de admin
+function verificarAdmin(req, res, next) {
+  const adminKey = req.headers['x-admin-key'] || req.query.admin_key;
+  const adminKeyEnv = process.env.ADMIN_KEY;
+
+  if (!adminKeyEnv) {
+    return res.status(403).json({ erro: 'Acesso admin não configurado' });
+  }
+
+  if (adminKey !== adminKeyEnv) {
+    return res.status(403).json({ erro: 'Chave de admin inválida' });
+  }
+
+  next();
+}
+
+// Listar todas as usuárias (admin)
+app.get('/api/admin/usuarios', verificarAdmin, async (req, res) => {
+  try {
+    const resultado = await pool.query(
+      'SELECT id, nome, email, idade, cidade, criado_em FROM usuarios ORDER BY criado_em DESC'
+    );
+
+    res.json({
+      total: resultado.rows.length,
+      usuarios: resultado.rows
+    });
+
+  } catch (error) {
+    console.error('Erro ao listar usuárias:', error);
+    res.status(500).json({ erro: 'Erro interno do servidor' });
+  }
+});
+
+// Estatísticas (admin)
+app.get('/api/admin/estatisticas', verificarAdmin, async (req, res) => {
+  try {
+    const totalUsuarios = await pool.query('SELECT COUNT(*) FROM usuarios');
+    const usuariosHoje = await pool.query(
+      "SELECT COUNT(*) FROM usuarios WHERE criado_em >= CURRENT_DATE"
+    );
+    const usuariosSemana = await pool.query(
+      "SELECT COUNT(*) FROM usuarios WHERE criado_em >= CURRENT_DATE - INTERVAL '7 days'"
+    );
+    const cidadesMaisComuns = await pool.query(
+      `SELECT cidade, COUNT(*) as total FROM usuarios
+       WHERE cidade IS NOT NULL
+       GROUP BY cidade ORDER BY total DESC LIMIT 5`
+    );
+
+    res.json({
+      total_usuarios: parseInt(totalUsuarios.rows[0].count),
+      cadastros_hoje: parseInt(usuariosHoje.rows[0].count),
+      cadastros_semana: parseInt(usuariosSemana.rows[0].count),
+      cidades_mais_comuns: cidadesMaisComuns.rows
+    });
+
+  } catch (error) {
+    console.error('Erro ao obter estatísticas:', error);
+    res.status(500).json({ erro: 'Erro interno do servidor' });
+  }
+});
+
+// =====================
 // ROTAS DE PÁGINAS
 // =====================
 

@@ -54,6 +54,7 @@ manas-investem/
 5. Adicione também:
    - `SESSION_SECRET` = (gere uma senha aleatória, ex: `manas2024secretkey`)
    - `NODE_ENV` = `production`
+   - `ADMIN_KEY` = (senha para acessar dados das usuárias, ex: `minhaChaveAdmin123`)
 
 ### 5. Deploy
 
@@ -102,6 +103,7 @@ npm start
 | `SESSION_SECRET` | Chave secreta para sessões |
 | `NODE_ENV` | Ambiente (development/production) |
 | `PORT` | Porta do servidor (padrão: 3000) |
+| `ADMIN_KEY` | Chave para acessar rotas de admin |
 
 ## API Endpoints
 
@@ -112,6 +114,23 @@ npm start
 | POST | `/api/logout` | Fazer logout |
 | GET | `/api/usuario` | Dados da usuária logada |
 | GET | `/api/verificar-sessao` | Verificar se está logada |
+
+### API de Admin (protegida por ADMIN_KEY)
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET | `/api/admin/usuarios` | Listar todas as usuárias |
+| GET | `/api/admin/estatisticas` | Estatísticas de cadastros |
+
+**Como usar:**
+
+```bash
+# Via header
+curl -H "x-admin-key: SUA_ADMIN_KEY" https://seu-site.up.railway.app/api/admin/usuarios
+
+# Via query string
+curl "https://seu-site.up.railway.app/api/admin/usuarios?admin_key=SUA_ADMIN_KEY"
+```
 
 ## Banco de Dados
 
