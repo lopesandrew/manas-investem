@@ -21,6 +21,8 @@ manas-investem/
 │   ├── cadastro.html   # Página de cadastro
 │   ├── login.html      # Página de login
 │   ├── dashboard.html  # Área logada
+│   ├── perfil.html     # Edição de perfil
+│   ├── favicon.svg     # Ícone do site
 │   └── styles.css      # Estilos
 └── README.md
 ```
@@ -113,6 +115,8 @@ npm start
 | POST | `/api/login` | Fazer login |
 | POST | `/api/logout` | Fazer logout |
 | GET | `/api/usuario` | Dados da usuária logada |
+| PUT | `/api/usuario` | Atualizar perfil (nome, idade, cidade) |
+| PUT | `/api/usuario/senha` | Alterar senha |
 | GET | `/api/verificar-sessao` | Verificar se está logada |
 
 ### API de Admin (protegida por ADMIN_KEY)
