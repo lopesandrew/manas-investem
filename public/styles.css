@@ -320,6 +320,17 @@ body {
   border-color: var(--orange);
 }
 
+.form-group input:disabled {
+  background: #f5f5f5;
+  color: var(--text-light);
+  cursor: not-allowed;
+}
+
+.form-hint {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -354,6 +365,19 @@ body {
   background: #f0fdf4;
   color: var(--success);
   border: 1px solid #bbf7d0;
+}
+
+/* Dividers */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  margin: 0 0 16px;
+  color: var(--text);
 }
 
 /* ==================

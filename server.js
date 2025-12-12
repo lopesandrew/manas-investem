@@ -220,6 +220,78 @@ app.get('/api/verificar-sessao', (req, res) => {
   }
 });
 
+// Atualizar perfil da usuária
+app.put('/api/usuario', autenticado, async (req, res) => {
+  try {
+    const { nome, idade, cidade } = req.body;
+
+    if (!nome || nome.trim() === '') {
+      return res.status(400).json({ erro: 'Nome é obrigatório' });
+    }
+
+    await pool.query(
+      'UPDATE usuarios SET nome = $1, idade = $2, cidade = $3 WHERE id = $4',
+      [nome.trim(), idade || null, cidade || null, req.session.usuario.id]
+    );
+
+    // Atualizar sessão com novo nome
+    req.session.usuario.nome = nome.trim();
+
+    res.json({ mensagem: 'Perfil atualizado com sucesso!' });
+
+  } catch (error) {
+    console.error('Erro ao atualizar perfil:', error);
+    res.status(500).json({ erro: 'Erro interno do servidor' });
+  }
+});
+
+// Alterar senha
+app.put('/api/usuario/senha', autenticado, async (req, res) => {
+  try {
+    const { senhaAtual, novaSenha } = req.body;
+
+    if (!senhaAtual || !novaSenha) {
+      return res.status(400).json({ erro: 'Senha atual e nova senha são obrigatórias' });
+    }
+
+    if (novaSenha.length < 6) {
+      return res.status(400).json({ erro: 'A nova senha deve ter pelo menos 6 caracteres' });
+    }
+
+    // Buscar usuária atual
+    const resultado = await pool.query(
+      'SELECT senha FROM usuarios WHERE id = $1',
+      [req.session.usuario.id]
+    );
+
+    if (resultado.rows.length === 0) {
+      return res.status(404).json({ erro: 'Usuária não encontrada' });
+    }
+
+    // Verificar senha atual
+    const senhaCorreta = await bcrypt.compare(senhaAtual, resultado.rows[0].senha);
+
+    if (!senhaCorreta) {
+      return res.status(401).json({ erro: 'Senha atual incorreta' });
+    }
+
+    // Criptografar nova senha
+    const senhaCriptografada = await bcrypt.hash(novaSenha, 10);
+
+    // Atualizar senha
+    await pool.query(
+      'UPDATE usuarios SET senha = $1 WHERE id = $2',
+      [senhaCriptografada, req.session.usuario.id]
+    );
+
+    res.json({ mensagem: 'Senha alterada com sucesso!' });
+
+  } catch (error) {
+    console.error('Erro ao alterar senha:', error);
+    res.status(500).json({ erro: 'Erro interno do servidor' });
+  }
+});
+
 // =====================
 // ROTAS DE ADMIN
 // =====================
@@ -305,6 +377,10 @@ app.get('/login', (req, res) => {
 
 app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+});
+
+app.get('/perfil', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'perfil.html'));
 });
 
 // Iniciar servidor

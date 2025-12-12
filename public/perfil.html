@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meu Perfil — Manas Investem</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="theme-color" content="#ff6a00" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <span class="logo-circle">M</span>
+        <span class="brand-text">Manas <strong>Investem</strong></span>
+      </a>
+      <div class="nav-links">
+        <a href="/dashboard" class="nav-link">Dashboard</a>
+        <button id="btn-logout" class="btn btn--outline btn--small">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="auth-section">
+    <div class="container">
+      <div class="auth-card">
+        <h1>Meu Perfil</h1>
+        <p class="auth-subtitle">Atualize suas informações</p>
+
+        <form id="form-perfil" class="auth-form">
+          <div class="form-group">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" disabled />
+            <small class="form-hint">O email não pode ser alterado</small>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="idade">Idade</label>
+              <input type="number" id="idade" name="idade" min="18" max="120" placeholder="Ex: 28" />
+            </div>
+
+            <div class="form-group">
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo" />
+            </div>
+          </div>
+
+          <div id="mensagem-erro" class="mensagem mensagem--erro" style="display: none;"></div>
+          <div id="mensagem-sucesso" class="mensagem mensagem--sucesso" style="display: none;"></div>
+
+          <button type="submit" class="btn btn--primary btn--full">Salvar alterações</button>
+        </form>
+
+        <hr class="divider" />
+
+        <h2 class="section-subtitle">Alterar senha</h2>
+        <form id="form-senha" class="auth-form">
+          <div class="form-group">
+            <label for="senha-atual">Senha atual</label>
+            <input type="password" id="senha-atual" name="senha-atual" required placeholder="Sua senha atual" />
+          </div>
+
+          <div class="form-group">
+            <label for="nova-senha">Nova senha</label>
+            <input type="password" id="nova-senha" name="nova-senha" required minlength="6" placeholder="Mínimo 6 caracteres" />
+          </div>
+
+          <div class="form-group">
+            <label for="confirmar-senha">Confirmar nova senha</label>
+            <input type="password" id="confirmar-senha" name="confirmar-senha" required minlength="6" placeholder="Repita a nova senha" />
+          </div>
+
+          <div id="mensagem-erro-senha" class="mensagem mensagem--erro" style="display: none;"></div>
+          <div id="mensagem-sucesso-senha" class="mensagem mensagem--sucesso" style="display: none;"></div>
+
+          <button type="submit" class="btn btn--outline btn--full">Alterar senha</button>
+        </form>
+
+        <p class="auth-footer">
+          <a href="/dashboard">Voltar ao Dashboard</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Verificar se está logada e carregar dados
+    async function inicializar() {
+      try {
+        const resposta = await fetch('/api/verificar-sessao');
+        const dados = await resposta.json();
+
+        if (!dados.logada) {
+          window.location.href = '/login';
+          return;
+        }
+
+        carregarPerfil();
+      } catch (error) {
+        window.location.href = '/login';
+      }
+    }
+
+    async function carregarPerfil() {
+      try {
+        const resposta = await fetch('/api/usuario');
+        const usuario = await resposta.json();
+
+        document.getElementById('nome').value = usuario.nome || '';
+        document.getElementById('email').value = usuario.email || '';
+        document.getElementById('idade').value = usuario.idade || '';
+        document.getElementById('cidade').value = usuario.cidade || '';
+      } catch (error) {
+        console.error('Erro ao carregar perfil:', error);
+      }
+    }
+
+    // Atualizar perfil
+    const formPerfil = document.getElementById('form-perfil');
+    const msgErro = document.getElementById('mensagem-erro');
+    const msgSucesso = document.getElementById('mensagem-sucesso');
+
+    formPerfil.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msgErro.style.display = 'none';
+      msgSucesso.style.display = 'none';
+
+      const dados = {
+        nome: document.getElementById('nome').value,
+        idade: document.getElementById('idade').value || null,
+        cidade: document.getElementById('cidade').value || null
+      };
+
+      try {
+        const resposta = await fetch('/api/usuario', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dados)
+        });
+
+        const resultado = await resposta.json();
+
+        if (resposta.ok) {
+          msgSucesso.textContent = resultado.mensagem;
+          msgSucesso.style.display = 'block';
+        } else {
+          msgErro.textContent = resultado.erro;
+          msgErro.style.display = 'block';
+        }
+      } catch (error) {
+        msgErro.textContent = 'Erro ao conectar com o servidor';
+        msgErro.style.display = 'block';
+      }
+    });
+
+    // Alterar senha
+    const formSenha = document.getElementById('form-senha');
+    const msgErroSenha = document.getElementById('mensagem-erro-senha');
+    const msgSucessoSenha = document.getElementById('mensagem-sucesso-senha');
+
+    formSenha.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msgErroSenha.style.display = 'none';
+      msgSucessoSenha.style.display = 'none';
+
+      const senhaAtual = document.getElementById('senha-atual').value;
+      const novaSenha = document.getElementById('nova-senha').value;
+      const confirmarSenha = document.getElementById('confirmar-senha').value;
+
+      if (novaSenha !== confirmarSenha) {
+        msgErroSenha.textContent = 'As senhas não coincidem';
+        msgErroSenha.style.display = 'block';
+        return;
+      }
+
+      try {
+        const resposta = await fetch('/api/usuario/senha', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ senhaAtual, novaSenha })
+        });
+
+        const resultado = await resposta.json();
+
+        if (resposta.ok) {
+          msgSucessoSenha.textContent = resultado.mensagem;
+          msgSucessoSenha.style.display = 'block';
+          formSenha.reset();
+        } else {
+          msgErroSenha.textContent = resultado.erro;
+          msgErroSenha.style.display = 'block';
+        }
+      } catch (error) {
+        msgErroSenha.textContent = 'Erro ao conectar com o servidor';
+        msgErroSenha.style.display = 'block';
+      }
+    });
+
+    // Logout
+    document.getElementById('btn-logout').addEventListener('click', async () => {
+      try {
+        await fetch('/api/logout', { method: 'POST' });
+        window.location.href = '/';
+      } catch (error) {
+        console.error('Erro ao fazer logout:', error);
+      }
+    });
+
+    inicializar();
+  </script>
+</body>
+</html>
