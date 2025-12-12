@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Manas Investem — Comece a investir com segurança</title>
+  <meta name="description" content="Manas Investem: um espaço simples e acolhedor para mulheres começarem a investir com segurança." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <span class="logo-circle">M</span>
+        <span class="brand-text">Manas <strong>Investem</strong></span>
+      </a>
+      <div class="nav-links">
+        <a href="/login" class="nav-link">Entrar</a>
+        <a href="/cadastro" class="btn btn--primary btn--small">Cadastre-se</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Investir pode ser simples. <span class="accent">A gente te mostra como.</span></h1>
+      <p class="lead">A <strong>Manas Investem</strong> é um espaço feito por e para mulheres que querem começar a investir com segurança.</p>
+      <div class="hero-buttons">
+        <a href="/cadastro" class="btn btn--primary">Começar agora</a>
+        <a href="#como-funciona" class="btn btn--outline">Saiba mais</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-funciona" class="section">
+    <div class="container">
+      <h2 class="section-title">Como funciona</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">1</div>
+          <h3>Cadastre-se</h3>
+          <p>Crie sua conta gratuita em menos de 1 minuto.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">2</div>
+          <h3>Conheça seu perfil</h3>
+          <p>Responda algumas perguntas e descubra seu perfil de investidora.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">3</div>
+          <h3>Comece a investir</h3>
+          <p>Receba orientações personalizadas para começar com segurança.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--highlight">
+    <div class="container">
+      <h2 class="section-title">Por que a Manas Investem?</h2>
+      <div class="benefits">
+        <div class="benefit">
+          <h3>Feito para mulheres</h3>
+          <p>Conteúdo pensado para a realidade financeira da mulher brasileira.</p>
+        </div>
+        <div class="benefit">
+          <h3>Sem complicação</h3>
+          <p>Linguagem simples, sem termos técnicos desnecessários.</p>
+        </div>
+        <div class="benefit">
+          <h3>Comunidade</h3>
+          <p>Faça parte de uma rede de mulheres que estão transformando sua relação com o dinheiro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container">
+      <h2>Pronta para começar?</h2>
+      <p>Junte-se a milhares de mulheres que já estão investindo no seu futuro.</p>
+      <a href="/cadastro" class="btn btn--primary btn--large">Criar minha conta grátis</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Manas Investem. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

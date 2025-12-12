@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard — Manas Investem</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <span class="logo-circle">M</span>
+        <span class="brand-text">Manas <strong>Investem</strong></span>
+      </a>
+      <div class="nav-links">
+        <span id="user-name" class="user-greeting"></span>
+        <button id="btn-logout" class="btn btn--outline btn--small">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="dashboard-section">
+    <div class="container">
+      <div class="dashboard-welcome">
+        <h1>Olá, <span id="nome-usuario">Investidora</span>!</h1>
+        <p>Bem-vinda à sua área exclusiva.</p>
+      </div>
+
+      <div class="dashboard-cards">
+        <div class="dashboard-card">
+          <h3>Seu Perfil</h3>
+          <div id="perfil-info">
+            <p><strong>Email:</strong> <span id="info-email">-</span></p>
+            <p><strong>Idade:</strong> <span id="info-idade">-</span></p>
+            <p><strong>Cidade:</strong> <span id="info-cidade">-</span></p>
+            <p><strong>Membro desde:</strong> <span id="info-desde">-</span></p>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <h3>Próximos Passos</h3>
+          <ul class="checklist">
+            <li class="checklist-item checklist-item--done">Criar sua conta</li>
+            <li class="checklist-item">Descobrir seu perfil de investidora</li>
+            <li class="checklist-item">Assistir primeira aula</li>
+            <li class="checklist-item">Fazer seu primeiro investimento</li>
+          </ul>
+        </div>
+
+        <div class="dashboard-card">
+          <h3>Questionário de Perfil</h3>
+          <p>Descubra qual é o seu perfil de investidora respondendo nosso questionário.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpnN3eovh11E_9XyTJtzK_Vwrwrs9ewqMFcHMQjZsZ7-y_g/viewform" target="_blank" rel="noopener" class="btn btn--primary">Responder questionário</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Manas Investem. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Verificar se está logada
+    async function verificarLogin() {
+      try {
+        const resposta = await fetch('/api/verificar-sessao');
+        const dados = await resposta.json();
+
+        if (!dados.logada) {
+          window.location.href = '/login';
+          return;
+        }
+
+        // Carregar dados da usuária
+        carregarPerfil();
+      } catch (error) {
+        window.location.href = '/login';
+      }
+    }
+
+    async function carregarPerfil() {
+      try {
+        const resposta = await fetch('/api/usuario');
+        const usuario = await resposta.json();
+
+        document.getElementById('nome-usuario').textContent = usuario.nome.split(' ')[0];
+        document.getElementById('user-name').textContent = `Olá, ${usuario.nome.split(' ')[0]}`;
+        document.getElementById('info-email').textContent = usuario.email;
+        document.getElementById('info-idade').textContent = usuario.idade || 'Não informada';
+        document.getElementById('info-cidade').textContent = usuario.cidade || 'Não informada';
+
+        const dataCriacao = new Date(usuario.criado_em);
+        document.getElementById('info-desde').textContent = dataCriacao.toLocaleDateString('pt-BR');
+      } catch (error) {
+        console.error('Erro ao carregar perfil:', error);
+      }
+    }
+
+    // Logout
+    document.getElementById('btn-logout').addEventListener('click', async () => {
+      try {
+        await fetch('/api/logout', { method: 'POST' });
+        window.location.href = '/';
+      } catch (error) {
+        console.error('Erro ao fazer logout:', error);
+      }
+    });
+
+    verificarLogin();
+  </script>
+</body>
+</html>

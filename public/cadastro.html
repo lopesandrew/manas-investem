@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro — Manas Investem</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <span class="logo-circle">M</span>
+        <span class="brand-text">Manas <strong>Investem</strong></span>
+      </a>
+      <div class="nav-links">
+        <a href="/login" class="nav-link">Já tenho conta</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="auth-section">
+    <div class="container">
+      <div class="auth-card">
+        <h1>Crie sua conta</h1>
+        <p class="auth-subtitle">Comece sua jornada de investimentos</p>
+
+        <form id="form-cadastro" class="auth-form">
+          <div class="form-group">
+            <label for="nome">Nome completo *</label>
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required placeholder="seu@email.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="senha">Senha *</label>
+            <input type="password" id="senha" name="senha" required minlength="6" placeholder="Mínimo 6 caracteres" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="idade">Idade</label>
+              <input type="number" id="idade" name="idade" min="18" max="120" placeholder="Ex: 28" />
+            </div>
+
+            <div class="form-group">
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo" />
+            </div>
+          </div>
+
+          <div id="mensagem-erro" class="mensagem mensagem--erro" style="display: none;"></div>
+          <div id="mensagem-sucesso" class="mensagem mensagem--sucesso" style="display: none;"></div>
+
+          <button type="submit" class="btn btn--primary btn--full">Criar minha conta</button>
+        </form>
+
+        <p class="auth-footer">
+          Já tem uma conta? <a href="/login">Faça login</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('form-cadastro');
+    const msgErro = document.getElementById('mensagem-erro');
+    const msgSucesso = document.getElementById('mensagem-sucesso');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      msgErro.style.display = 'none';
+      msgSucesso.style.display = 'none';
+
+      const dados = {
+        nome: document.getElementById('nome').value,
+        email: document.getElementById('email').value,
+        senha: document.getElementById('senha').value,
+        idade: document.getElementById('idade').value || null,
+        cidade: document.getElementById('cidade').value || null
+      };
+
+      try {
+        const resposta = await fetch('/api/cadastro', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dados)
+        });
+
+        const resultado = await resposta.json();
+
+        if (resposta.ok) {
+          msgSucesso.textContent = resultado.mensagem;
+          msgSucesso.style.display = 'block';
+          setTimeout(() => {
+            window.location.href = '/dashboard';
+          }, 1500);
+        } else {
+          msgErro.textContent = resultado.erro;
+          msgErro.style.display = 'block';
+        }
+      } catch (error) {
+        msgErro.textContent = 'Erro ao conectar com o servidor';
+        msgErro.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
