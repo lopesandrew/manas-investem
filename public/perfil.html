@@ -29,7 +29,7 @@
       <div class="auth-card" style="max-width: 560px;">
         <div class="text-center">
           <h1>Meu Perfil</h1>
-          <p class="auth-subtitle">Atualize suas informacoes pessoais</p>
+          <p class="auth-subtitle">Atualize suas informações pessoais</p>
         </div>
 
         <!-- Formulario de Perfil -->
@@ -54,7 +54,7 @@
               name="email"
               disabled
             />
-            <small class="form-hint">O email nao pode ser alterado</small>
+            <small class="form-hint">O email não pode ser alterado</small>
           </div>
 
           <div class="form-row">
@@ -76,7 +76,7 @@
                 type="text"
                 id="cidade"
                 name="cidade"
-                placeholder="Ex: Sao Paulo"
+                placeholder="Ex: São Paulo"
                 autocomplete="address-level2"
               />
             </div>
@@ -100,7 +100,7 @@
           </div>
 
           <button type="submit" class="btn btn--primary btn--full">
-            Salvar alteracoes
+            Salvar alterações
           </button>
         </form>
 
@@ -133,7 +133,7 @@
               name="nova-senha"
               required
               minlength="6"
-              placeholder="Minimo 6 caracteres"
+              placeholder="Mínimo 6 caracteres"
               autocomplete="new-password"
             />
           </div>
@@ -275,7 +275,7 @@
       const confirmarSenha = document.getElementById('confirmar-senha').value;
 
       if (novaSenha !== confirmarSenha) {
-        erroSenhaTexto.textContent = 'As senhas nao coincidem.';
+        erroSenhaTexto.textContent = 'As senhas não coincidem.';
         msgErroSenha.style.display = 'flex';
         return;
       }

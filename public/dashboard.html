@@ -36,8 +36,8 @@
     <div class="container">
       <!-- Header -->
       <div class="dashboard-header">
-        <h1>Ola, <span id="nome-usuario">Investidora</span>!</h1>
-        <p>Bem-vinda a sua area exclusiva. Continue sua jornada de investimentos.</p>
+        <h1>Olá, <span id="nome-usuario">Investidora</span>!</h1>
+        <p>Bem-vinda a sua área exclusiva. Continue sua jornada de investimentos.</p>
       </div>
 
       <!-- Cards Grid -->
@@ -84,7 +84,7 @@
           </div>
         </div>
 
-        <!-- Card: Proximos Passos -->
+        <!-- Card: Próximos Passos -->
         <div class="dashboard-card">
           <div class="dashboard-card-header">
             <div class="dashboard-card-icon">
@@ -93,7 +93,7 @@
                 <polyline points="22 4 12 14.01 9 11.01"/>
               </svg>
             </div>
-            <h3>Proximos Passos</h3>
+            <h3>Próximos Passos</h3>
           </div>
 
           <ul class="checklist">
@@ -117,7 +117,7 @@
             <h3>Questionario de Perfil</h3>
           </div>
 
-          <p>Descubra qual e o seu perfil de investidora: conservadora, moderada ou arrojada.</p>
+          <p>Descubra qual é o seu perfil de investidora: conservadora, moderada ou arrojada.</p>
           <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 20px;">Leva apenas 3 minutos para responder.</p>
 
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpnN3eovh11E_9XyTJtzK_Vwrwrs9ewqMFcHMQjZsZ7-y_g/viewform" target="_blank" rel="noopener" class="btn btn--primary">
@@ -144,7 +144,7 @@
             <h3>Recursos</h3>
           </div>
 
-          <p>Acesse conteudos exclusivos para comecar sua jornada de investimentos.</p>
+          <p>Acesse conteúdos exclusivos para começar sua jornada de investimentos.</p>
 
           <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 20px;">
             <a href="https://instagram.com/manasinvestem" target="_blank" rel="noopener" class="btn btn--outline btn--small" style="justify-content: flex-start;">
@@ -210,10 +210,10 @@
 
         const primeiroNome = usuario.nome.split(' ')[0];
         document.getElementById('nome-usuario').textContent = primeiroNome;
-        document.getElementById('user-greeting').textContent = `Ola, ${primeiroNome}`;
+        document.getElementById('user-greeting').textContent = `Olá, ${primeiroNome}`;
         document.getElementById('info-email').textContent = usuario.email;
-        document.getElementById('info-idade').textContent = usuario.idade ? `${usuario.idade} anos` : 'Nao informada';
-        document.getElementById('info-cidade').textContent = usuario.cidade || 'Nao informada';
+        document.getElementById('info-idade').textContent = usuario.idade ? `${usuario.idade} anos` : 'Não informada';
+        document.getElementById('info-cidade').textContent = usuario.cidade || 'Não informada';
 
         const dataCriacao = new Date(usuario.criado_em);
         document.getElementById('info-desde').textContent = dataCriacao.toLocaleDateString('pt-BR', {
