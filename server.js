@@ -1,19 +1,33 @@
 require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
-const pgSession = require('connect-pg-simple')(session);
 const bcrypt = require('bcryptjs');
-const { Pool } = require('pg');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configuração do banco de dados PostgreSQL
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
-});
+// Modo de desenvolvimento (sem banco de dados)
+const DEV_MODE = !process.env.DATABASE_URL;
+
+// Armazenamento em memória para desenvolvimento
+const memoryStore = {
+  usuarios: [],
+  nextId: 1
+};
+
+// Pool do PostgreSQL (apenas em produção)
+let pool = null;
+let pgSession = null;
+
+if (!DEV_MODE) {
+  const { Pool } = require('pg');
+  pgSession = require('connect-pg-simple')(session);
+  pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+  });
+}
 
 // Middlewares
 app.use(express.json());
@@ -26,11 +40,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Configuração de sessão
-app.use(session({
-  store: new pgSession({
-    pool: pool,
-    tableName: 'sessoes'
-  }),
+const sessionConfig = {
   secret: process.env.SESSION_SECRET || 'manas-investem-secret-key-2024',
   resave: false,
   saveUninitialized: false,
@@ -40,10 +50,26 @@ app.use(session({
     sameSite: process.env.NODE_ENV === 'production' ? 'lax' : 'strict',
     httpOnly: true
   }
-}));
+};
+
+// Usar PostgreSQL session store apenas em produção
+if (!DEV_MODE && pgSession) {
+  sessionConfig.store = new pgSession({
+    pool: pool,
+    tableName: 'sessoes'
+  });
+}
+
+app.use(session(sessionConfig));
 
 // Criar tabelas no banco de dados
 async function inicializarBanco() {
+  if (DEV_MODE) {
+    console.log('🔧 Modo de desenvolvimento ativo (sem banco de dados)');
+    console.log('📝 Dados serão armazenados em memória');
+    return;
+  }
+
   try {
     await pool.query(`
       CREATE TABLE IF NOT EXISTS usuarios (
@@ -95,30 +121,61 @@ app.post('/api/cadastro', async (req, res) => {
       return res.status(400).json({ erro: 'Nome, email e senha são obrigatórios' });
     }
 
-    // Verificar se email já existe
+    const emailLower = email.toLowerCase();
+
+    if (DEV_MODE) {
+      // Modo desenvolvimento - usar memória
+      const usuarioExiste = memoryStore.usuarios.find(u => u.email === emailLower);
+      if (usuarioExiste) {
+        return res.status(400).json({ erro: 'Este email já está cadastrado' });
+      }
+
+      const senhaCriptografada = await bcrypt.hash(senha, 10);
+      const novaUsuaria = {
+        id: memoryStore.nextId++,
+        nome,
+        email: emailLower,
+        senha: senhaCriptografada,
+        idade: idade || null,
+        cidade: cidade || null,
+        criado_em: new Date().toISOString()
+      };
+      memoryStore.usuarios.push(novaUsuaria);
+
+      req.session.usuario = {
+        id: novaUsuaria.id,
+        nome: novaUsuaria.nome,
+        email: novaUsuaria.email
+      };
+
+      const { senha: _, ...usuarioSemSenha } = novaUsuaria;
+      return res.status(201).json({
+        mensagem: 'Cadastro realizado com sucesso!',
+        usuario: usuarioSemSenha
+      });
+    }
+
+    // Modo produção - usar PostgreSQL
     const usuarioExiste = await pool.query(
       'SELECT id FROM usuarios WHERE email = $1',
-      [email.toLowerCase()]
+      [emailLower]
     );
 
     if (usuarioExiste.rows.length > 0) {
       return res.status(400).json({ erro: 'Este email já está cadastrado' });
     }
 
-    // Criptografar senha
     const senhaCriptografada = await bcrypt.hash(senha, 10);
 
-    // Inserir usuária
     const resultado = await pool.query(
       `INSERT INTO usuarios (nome, email, senha, idade, cidade)
        VALUES ($1, $2, $3, $4, $5)
        RETURNING id, nome, email, idade, cidade, criado_em`,
-      [nome, email.toLowerCase(), senhaCriptografada, idade || null, cidade || null]
+      [nome, emailLower, senhaCriptografada, idade || null, cidade || null]
     );
 
     const novaUsuaria = resultado.rows[0];
 
-    // Criar sessão automaticamente após cadastro
     req.session.usuario = {
       id: novaUsuaria.id,
       nome: novaUsuaria.nome,
@@ -145,10 +202,43 @@ app.post('/api/login', async (req, res) => {
       return res.status(400).json({ erro: 'Email e senha são obrigatórios' });
     }
 
-    // Buscar usuária
+    const emailLower = email.toLowerCase();
+
+    if (DEV_MODE) {
+      // Modo desenvolvimento - usar memória
+      const usuario = memoryStore.usuarios.find(u => u.email === emailLower);
+
+      if (!usuario) {
+        return res.status(401).json({ erro: 'Email ou senha incorretos' });
+      }
+
+      const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
+      if (!senhaCorreta) {
+        return res.status(401).json({ erro: 'Email ou senha incorretos' });
+      }
+
+      req.session.usuario = {
+        id: usuario.id,
+        nome: usuario.nome,
+        email: usuario.email
+      };
+
+      return res.json({
+        mensagem: 'Login realizado com sucesso!',
+        usuario: {
+          id: usuario.id,
+          nome: usuario.nome,
+          email: usuario.email,
+          idade: usuario.idade,
+          cidade: usuario.cidade
+        }
+      });
+    }
+
+    // Modo produção - usar PostgreSQL
     const resultado = await pool.query(
       'SELECT * FROM usuarios WHERE email = $1',
-      [email.toLowerCase()]
+      [emailLower]
     );
 
     if (resultado.rows.length === 0) {
@@ -157,14 +247,12 @@ app.post('/api/login', async (req, res) => {
 
     const usuario = resultado.rows[0];
 
-    // Verificar senha
     const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
 
     if (!senhaCorreta) {
       return res.status(401).json({ erro: 'Email ou senha incorretos' });
     }
 
-    // Criar sessão
     req.session.usuario = {
       id: usuario.id,
       nome: usuario.nome,
@@ -201,6 +289,15 @@ app.post('/api/logout', (req, res) => {
 // Obter dados da usuária logada
 app.get('/api/usuario', autenticado, async (req, res) => {
   try {
+    if (DEV_MODE) {
+      const usuario = memoryStore.usuarios.find(u => u.id === req.session.usuario.id);
+      if (!usuario) {
+        return res.status(404).json({ erro: 'Usuária não encontrada' });
+      }
+      const { senha, ...usuarioSemSenha } = usuario;
+      return res.json(usuarioSemSenha);
+    }
+
     const resultado = await pool.query(
       'SELECT id, nome, email, idade, cidade, criado_em FROM usuarios WHERE id = $1',
       [req.session.usuario.id]
@@ -236,12 +333,22 @@ app.put('/api/usuario', autenticado, async (req, res) => {
       return res.status(400).json({ erro: 'Nome é obrigatório' });
     }
 
+    if (DEV_MODE) {
+      const usuario = memoryStore.usuarios.find(u => u.id === req.session.usuario.id);
+      if (usuario) {
+        usuario.nome = nome.trim();
+        usuario.idade = idade || null;
+        usuario.cidade = cidade || null;
+      }
+      req.session.usuario.nome = nome.trim();
+      return res.json({ mensagem: 'Perfil atualizado com sucesso!' });
+    }
+
     await pool.query(
       'UPDATE usuarios SET nome = $1, idade = $2, cidade = $3 WHERE id = $4',
       [nome.trim(), idade || null, cidade || null, req.session.usuario.id]
     );
 
-    // Atualizar sessão com novo nome
     req.session.usuario.nome = nome.trim();
 
     res.json({ mensagem: 'Perfil atualizado com sucesso!' });
@@ -265,7 +372,21 @@ app.put('/api/usuario/senha', autenticado, async (req, res) => {
       return res.status(400).json({ erro: 'A nova senha deve ter pelo menos 6 caracteres' });
     }
 
-    // Buscar usuária atual
+    if (DEV_MODE) {
+      const usuario = memoryStore.usuarios.find(u => u.id === req.session.usuario.id);
+      if (!usuario) {
+        return res.status(404).json({ erro: 'Usuária não encontrada' });
+      }
+
+      const senhaCorreta = await bcrypt.compare(senhaAtual, usuario.senha);
+      if (!senhaCorreta) {
+        return res.status(401).json({ erro: 'Senha atual incorreta' });
+      }
+
+      usuario.senha = await bcrypt.hash(novaSenha, 10);
+      return res.json({ mensagem: 'Senha alterada com sucesso!' });
+    }
+
     const resultado = await pool.query(
       'SELECT senha FROM usuarios WHERE id = $1',
       [req.session.usuario.id]
@@ -275,17 +396,14 @@ app.put('/api/usuario/senha', autenticado, async (req, res) => {
       return res.status(404).json({ erro: 'Usuária não encontrada' });
     }
 
-    // Verificar senha atual
     const senhaCorreta = await bcrypt.compare(senhaAtual, resultado.rows[0].senha);
 
     if (!senhaCorreta) {
       return res.status(401).json({ erro: 'Senha atual incorreta' });
     }
 
-    // Criptografar nova senha
     const senhaCriptografada = await bcrypt.hash(novaSenha, 10);
 
-    // Atualizar senha
     await pool.query(
       'UPDATE usuarios SET senha = $1 WHERE id = $2',
       [senhaCriptografada, req.session.usuario.id]
@@ -322,6 +440,14 @@ function verificarAdmin(req, res, next) {
 // Listar todas as usuárias (admin)
 app.get('/api/admin/usuarios', verificarAdmin, async (req, res) => {
   try {
+    if (DEV_MODE) {
+      const usuarios = memoryStore.usuarios.map(({ senha, ...u }) => u);
+      return res.json({
+        total: usuarios.length,
+        usuarios
+      });
+    }
+
     const resultado = await pool.query(
       'SELECT id, nome, email, idade, cidade, criado_em FROM usuarios ORDER BY criado_em DESC'
     );
@@ -340,6 +466,34 @@ app.get('/api/admin/usuarios', verificarAdmin, async (req, res) => {
 // Estatísticas (admin)
 app.get('/api/admin/estatisticas', verificarAdmin, async (req, res) => {
   try {
+    if (DEV_MODE) {
+      const hoje = new Date();
+      hoje.setHours(0, 0, 0, 0);
+      const semanaAtras = new Date(hoje);
+      semanaAtras.setDate(semanaAtras.getDate() - 7);
+
+      const usuariosHoje = memoryStore.usuarios.filter(u => new Date(u.criado_em) >= hoje).length;
+      const usuariosSemana = memoryStore.usuarios.filter(u => new Date(u.criado_em) >= semanaAtras).length;
+
+      const cidadesCount = {};
+      memoryStore.usuarios.forEach(u => {
+        if (u.cidade) {
+          cidadesCount[u.cidade] = (cidadesCount[u.cidade] || 0) + 1;
+        }
+      });
+      const cidadesMaisComuns = Object.entries(cidadesCount)
+        .map(([cidade, total]) => ({ cidade, total }))
+        .sort((a, b) => b.total - a.total)
+        .slice(0, 5);
+
+      return res.json({
+        total_usuarios: memoryStore.usuarios.length,
+        cadastros_hoje: usuariosHoje,
+        cadastros_semana: usuariosSemana,
+        cidades_mais_comuns: cidadesMaisComuns
+      });
+    }
+
     const totalUsuarios = await pool.query('SELECT COUNT(*) FROM usuarios');
     const usuariosHoje = await pool.query(
       "SELECT COUNT(*) FROM usuarios WHERE criado_em >= CURRENT_DATE"
