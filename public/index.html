@@ -3,105 +3,321 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Manas Investem — Comece a investir com segurança</title>
-  <meta name="description" content="Manas Investem: um espaço simples e acolhedor para mulheres começarem a investir com segurança." />
+  <title>Manas Investem — Educacao financeira para mulheres</title>
+  <meta name="description" content="Manas Investem: educacao financeira independente para mulheres brasileiras. Aprenda a investir com seguranca, sem complicacao." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <!-- Open Graph / Redes Sociais -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Manas Investem — Comece a investir com segurança" />
-  <meta property="og:description" content="Um espaço feito por e para mulheres que querem começar a investir com segurança." />
+  <meta property="og:title" content="Manas Investem — Educacao financeira para mulheres" />
+  <meta property="og:description" content="Um espaco feito por e para mulheres que querem comecar a investir com seguranca." />
   <meta property="og:url" content="https://manasinvestem.com.br" />
   <meta name="theme-color" content="#ff6a00" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="header">
+  <!-- Header -->
+  <header class="header" id="header">
     <div class="container nav">
       <a href="/" class="brand">
         <span class="logo-circle">M</span>
         <span class="brand-text">Manas <strong>Investem</strong></span>
       </a>
-      <div class="nav-links">
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#como-funciona" class="nav-link">Como funciona</a>
+        <a href="#por-que" class="nav-link">Por que nos</a>
         <a href="/login" class="nav-link">Entrar</a>
-        <a href="/cadastro" class="btn btn--primary btn--small">Cadastre-se</a>
+        <a href="/cadastro" class="btn btn--primary btn--small">Comecar gratis</a>
       </div>
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
-    <div class="container">
-      <h1>Investir pode ser simples. <span class="accent">A gente te mostra como.</span></h1>
-      <p class="lead">A <strong>Manas Investem</strong> é um espaço feito por e para mulheres que querem começar a investir com segurança.</p>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>+1.2 milhao de mulheres ja investem na B3</span>
+      </div>
+
+      <h1 class="display-1">
+        Seu dinheiro merece<br>
+        <span class="text-gradient">trabalhar por voce.</span>
+      </h1>
+
+      <p class="lead">
+        A <strong>Manas Investem</strong> e um espaco de educacao financeira independente,
+        feito por e para mulheres que querem comecar a investir com seguranca.
+      </p>
+
       <div class="hero-buttons">
-        <a href="/cadastro" class="btn btn--primary">Começar agora</a>
-        <a href="#como-funciona" class="btn btn--outline">Saiba mais</a>
+        <a href="/cadastro" class="btn btn--primary btn--large">
+          Comecar agora
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#como-funciona" class="btn btn--outline btn--large">Saiba mais</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value"><span class="highlight">658%</span></span>
+          <span class="hero-stat-label">crescimento em 5 anos</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">16M</span>
+          <span class="hero-stat-label">planejam comecar</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">3x</span>
+          <span class="hero-stat-label">maior saldo medio</span>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Como Funciona -->
   <section id="como-funciona" class="section">
     <div class="container">
-      <h2 class="section-title">Como funciona</h2>
-      <div class="features">
-        <div class="feature">
-          <div class="feature-icon">1</div>
-          <h3>Cadastre-se</h3>
-          <p>Crie sua conta gratuita em menos de 1 minuto.</p>
+      <div class="section-header">
+        <span class="section-label">Como funciona</span>
+        <h2 class="section-title">Tres passos para comecar</h2>
+        <p class="section-subtitle">
+          Simples, direto e sem enrolacao. Criamos um caminho claro para voce dar os primeiros passos.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="feature-number">1</span>
+          </div>
+          <h3>Crie sua conta</h3>
+          <p>Cadastro gratuito em menos de 1 minuto. Sem cartao de credito, sem compromisso.</p>
         </div>
-        <div class="feature">
-          <div class="feature-icon">2</div>
-          <h3>Conheça seu perfil</h3>
-          <p>Responda algumas perguntas e descubra seu perfil de investidora.</p>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="feature-number">2</span>
+          </div>
+          <h3>Descubra seu perfil</h3>
+          <p>Responda algumas perguntas e descubra seu perfil de investidora: conservadora, moderada ou arrojada.</p>
         </div>
-        <div class="feature">
-          <div class="feature-icon">3</div>
-          <h3>Comece a investir</h3>
-          <p>Receba orientações personalizadas para começar com segurança.</p>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="feature-number">3</span>
+          </div>
+          <h3>Aprenda e invista</h3>
+          <p>Receba orientacoes personalizadas e conteudos educacionais para comecar com confianca.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section--highlight">
+  <!-- Stats Section -->
+  <section class="stats-section">
     <div class="container">
-      <h2 class="section-title">Por que a Manas Investem?</h2>
-      <div class="benefits">
-        <div class="benefit">
-          <h3>Feito para mulheres</h3>
-          <p>Conteúdo pensado para a realidade financeira da mulher brasileira.</p>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">1.25M</div>
+          <div class="stat-label">Mulheres na B3</div>
+          <div class="stat-sublabel">Marco 2024</div>
         </div>
-        <div class="benefit">
-          <h3>Sem complicação</h3>
-          <p>Linguagem simples, sem termos técnicos desnecessários.</p>
+        <div class="stat-item">
+          <div class="stat-value">903k</div>
+          <div class="stat-label">No Tesouro Direto</div>
+          <div class="stat-sublabel">+260% em 5 anos</div>
         </div>
-        <div class="benefit">
-          <h3>Comunidade</h3>
-          <p>Faça parte de uma rede de mulheres que estão transformando sua relação com o dinheiro.</p>
+        <div class="stat-item">
+          <div class="stat-value">46%</div>
+          <div class="stat-label">Tem 25-39 anos</div>
+          <div class="stat-sublabel">Geracao Millennial</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">1.819%</div>
+          <div class="stat-label">Crescimento 18-24</div>
+          <div class="stat-sublabel">Maior alta por faixa</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section cta-section">
+  <!-- Por que nos -->
+  <section id="por-que" class="section section--gray">
     <div class="container">
-      <h2>Pronta para começar?</h2>
-      <p>Junte-se a milhares de mulheres que já estão investindo no seu futuro.</p>
-      <a href="/cadastro" class="btn btn--primary btn--large">Criar minha conta grátis</a>
+      <div class="section-header">
+        <span class="section-label">Diferenciais</span>
+        <h2 class="section-title">Por que a Manas Investem?</h2>
+        <p class="section-subtitle">
+          Nao vendemos produtos financeiros. Nossa missao e educar.
+        </p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Feito para mulheres</h3>
+            <p>Conteudo pensado para a realidade financeira da mulher brasileira, com linguagem acolhedora.</p>
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Independencia editorial</h3>
+            <p>Nao recebemos comissao de corretoras. Nossas recomendacoes sao 100% imparciais.</p>
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9"/>
+              <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Sem complicacao</h3>
+            <p>Linguagem simples e direta. Sem jargoes tecnicos desnecessarios ou finances.</p>
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Comunidade</h3>
+            <p>Faca parte de uma rede de mulheres que estao transformando sua relacao com o dinheiro.</p>
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Passo a passo</h3>
+            <p>Conteudo estruturado do basico ao avancado. Voce evolui no seu ritmo.</p>
+          </div>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Seguranca</h3>
+            <p>Seus dados estao protegidos. Privacidade e seguranca sao prioridade.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Pronta para comecar?</h2>
+      <p>Junte-se a milhares de mulheres que ja estao transformando sua relacao com o dinheiro.</p>
+      <a href="/cadastro" class="btn btn--primary btn--large">
+        Criar minha conta gratis
+        <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>© <span id="year"></span> Manas Investem. Todos os direitos reservados.</p>
+      <p>&copy; <span id="year"></span> Manas Investem. Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/manasinvestem" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+        <a href="mailto:contato@manasinvestem.com.br" class="footer-link">Contato</a>
+      </div>
     </div>
   </footer>
 
   <script>
+    // Ano atual no footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>

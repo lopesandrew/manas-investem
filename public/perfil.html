@@ -8,7 +8,8 @@
   <meta name="theme-color" content="#ff6a00" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="auth-page">
+  <!-- Header -->
   <header class="header">
     <div class="container nav">
       <a href="/" class="brand">
@@ -22,76 +23,171 @@
     </div>
   </header>
 
+  <!-- Profile Section -->
   <section class="auth-section">
     <div class="container">
-      <div class="auth-card">
-        <h1>Meu Perfil</h1>
-        <p class="auth-subtitle">Atualize suas informações</p>
+      <div class="auth-card" style="max-width: 560px;">
+        <div class="text-center">
+          <h1>Meu Perfil</h1>
+          <p class="auth-subtitle">Atualize suas informacoes pessoais</p>
+        </div>
 
+        <!-- Formulario de Perfil -->
         <form id="form-perfil" class="auth-form">
           <div class="form-group">
             <label for="nome">Nome completo</label>
-            <input type="text" id="nome" name="nome" required placeholder="Seu nome" />
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              required
+              placeholder="Seu nome"
+              autocomplete="name"
+            />
           </div>
 
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" disabled />
-            <small class="form-hint">O email não pode ser alterado</small>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              disabled
+            />
+            <small class="form-hint">O email nao pode ser alterado</small>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="idade">Idade</label>
-              <input type="number" id="idade" name="idade" min="18" max="120" placeholder="Ex: 28" />
+              <input
+                type="number"
+                id="idade"
+                name="idade"
+                min="18"
+                max="120"
+                placeholder="Ex: 28"
+              />
             </div>
 
             <div class="form-group">
               <label for="cidade">Cidade</label>
-              <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo" />
+              <input
+                type="text"
+                id="cidade"
+                name="cidade"
+                placeholder="Ex: Sao Paulo"
+                autocomplete="address-level2"
+              />
             </div>
           </div>
 
-          <div id="mensagem-erro" class="mensagem mensagem--erro" style="display: none;"></div>
-          <div id="mensagem-sucesso" class="mensagem mensagem--sucesso" style="display: none;"></div>
+          <div id="mensagem-erro" class="mensagem mensagem--erro" style="display: none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="15" y1="9" x2="9" y2="15"/>
+              <line x1="9" y1="9" x2="15" y2="15"/>
+            </svg>
+            <span id="erro-texto"></span>
+          </div>
 
-          <button type="submit" class="btn btn--primary btn--full">Salvar alterações</button>
+          <div id="mensagem-sucesso" class="mensagem mensagem--sucesso" style="display: none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span id="sucesso-texto"></span>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--full">
+            Salvar alteracoes
+          </button>
         </form>
 
         <hr class="divider" />
 
-        <h2 class="section-subtitle">Alterar senha</h2>
+        <!-- Formulario de Senha -->
+        <div class="text-center mb-4">
+          <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 4px;">Alterar senha</h2>
+          <p class="text-muted" style="font-size: 0.9rem;">Atualize sua senha de acesso</p>
+        </div>
+
         <form id="form-senha" class="auth-form">
           <div class="form-group">
             <label for="senha-atual">Senha atual</label>
-            <input type="password" id="senha-atual" name="senha-atual" required placeholder="Sua senha atual" />
+            <input
+              type="password"
+              id="senha-atual"
+              name="senha-atual"
+              required
+              placeholder="Digite sua senha atual"
+              autocomplete="current-password"
+            />
           </div>
 
           <div class="form-group">
             <label for="nova-senha">Nova senha</label>
-            <input type="password" id="nova-senha" name="nova-senha" required minlength="6" placeholder="Mínimo 6 caracteres" />
+            <input
+              type="password"
+              id="nova-senha"
+              name="nova-senha"
+              required
+              minlength="6"
+              placeholder="Minimo 6 caracteres"
+              autocomplete="new-password"
+            />
           </div>
 
           <div class="form-group">
             <label for="confirmar-senha">Confirmar nova senha</label>
-            <input type="password" id="confirmar-senha" name="confirmar-senha" required minlength="6" placeholder="Repita a nova senha" />
+            <input
+              type="password"
+              id="confirmar-senha"
+              name="confirmar-senha"
+              required
+              minlength="6"
+              placeholder="Repita a nova senha"
+              autocomplete="new-password"
+            />
           </div>
 
-          <div id="mensagem-erro-senha" class="mensagem mensagem--erro" style="display: none;"></div>
-          <div id="mensagem-sucesso-senha" class="mensagem mensagem--sucesso" style="display: none;"></div>
+          <div id="mensagem-erro-senha" class="mensagem mensagem--erro" style="display: none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="15" y1="9" x2="9" y2="15"/>
+              <line x1="9" y1="9" x2="15" y2="15"/>
+            </svg>
+            <span id="erro-senha-texto"></span>
+          </div>
 
-          <button type="submit" class="btn btn--outline btn--full">Alterar senha</button>
+          <div id="mensagem-sucesso-senha" class="mensagem mensagem--sucesso" style="display: none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <span id="sucesso-senha-texto"></span>
+          </div>
+
+          <button type="submit" class="btn btn--outline btn--full">
+            Alterar senha
+          </button>
         </form>
 
         <p class="auth-footer">
-          <a href="/dashboard">Voltar ao Dashboard</a>
+          <a href="/dashboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px;">
+              <line x1="19" y1="12" x2="5" y2="12"/>
+              <polyline points="12 19 5 12 12 5"/>
+            </svg>
+            Voltar ao Dashboard
+          </a>
         </p>
       </div>
     </div>
   </section>
 
   <script>
-    // Verificar se está logada e carregar dados
+    // Verificar se esta logada e carregar dados
     async function inicializar() {
       try {
         const resposta = await fetch('/api/verificar-sessao');
@@ -126,6 +222,8 @@
     const formPerfil = document.getElementById('form-perfil');
     const msgErro = document.getElementById('mensagem-erro');
     const msgSucesso = document.getElementById('mensagem-sucesso');
+    const erroTexto = document.getElementById('erro-texto');
+    const sucessoTexto = document.getElementById('sucesso-texto');
 
     formPerfil.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -133,9 +231,9 @@
       msgSucesso.style.display = 'none';
 
       const dados = {
-        nome: document.getElementById('nome').value,
+        nome: document.getElementById('nome').value.trim(),
         idade: document.getElementById('idade').value || null,
-        cidade: document.getElementById('cidade').value || null
+        cidade: document.getElementById('cidade').value.trim() || null
       };
 
       try {
@@ -148,15 +246,15 @@
         const resultado = await resposta.json();
 
         if (resposta.ok) {
-          msgSucesso.textContent = resultado.mensagem;
-          msgSucesso.style.display = 'block';
+          sucessoTexto.textContent = resultado.mensagem || 'Perfil atualizado com sucesso!';
+          msgSucesso.style.display = 'flex';
         } else {
-          msgErro.textContent = resultado.erro;
-          msgErro.style.display = 'block';
+          erroTexto.textContent = resultado.erro || 'Erro ao atualizar perfil.';
+          msgErro.style.display = 'flex';
         }
       } catch (error) {
-        msgErro.textContent = 'Erro ao conectar com o servidor';
-        msgErro.style.display = 'block';
+        erroTexto.textContent = 'Erro ao conectar com o servidor.';
+        msgErro.style.display = 'flex';
       }
     });
 
@@ -164,6 +262,8 @@
     const formSenha = document.getElementById('form-senha');
     const msgErroSenha = document.getElementById('mensagem-erro-senha');
     const msgSucessoSenha = document.getElementById('mensagem-sucesso-senha');
+    const erroSenhaTexto = document.getElementById('erro-senha-texto');
+    const sucessoSenhaTexto = document.getElementById('sucesso-senha-texto');
 
     formSenha.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -175,8 +275,8 @@
       const confirmarSenha = document.getElementById('confirmar-senha').value;
 
       if (novaSenha !== confirmarSenha) {
-        msgErroSenha.textContent = 'As senhas não coincidem';
-        msgErroSenha.style.display = 'block';
+        erroSenhaTexto.textContent = 'As senhas nao coincidem.';
+        msgErroSenha.style.display = 'flex';
         return;
       }
 
@@ -190,16 +290,16 @@
         const resultado = await resposta.json();
 
         if (resposta.ok) {
-          msgSucessoSenha.textContent = resultado.mensagem;
-          msgSucessoSenha.style.display = 'block';
+          sucessoSenhaTexto.textContent = resultado.mensagem || 'Senha alterada com sucesso!';
+          msgSucessoSenha.style.display = 'flex';
           formSenha.reset();
         } else {
-          msgErroSenha.textContent = resultado.erro;
-          msgErroSenha.style.display = 'block';
+          erroSenhaTexto.textContent = resultado.erro || 'Erro ao alterar senha.';
+          msgErroSenha.style.display = 'flex';
         }
       } catch (error) {
-        msgErroSenha.textContent = 'Erro ao conectar com o servidor';
-        msgErroSenha.style.display = 'block';
+        erroSenhaTexto.textContent = 'Erro ao conectar com o servidor.';
+        msgErroSenha.style.display = 'flex';
       }
     });
 
@@ -210,6 +310,7 @@
         window.location.href = '/';
       } catch (error) {
         console.error('Erro ao fazer logout:', error);
+        window.location.href = '/';
       }
     });
 

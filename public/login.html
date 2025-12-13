@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login — Manas Investem</title>
+  <title>Entrar — Manas Investem</title>
+  <meta name="description" content="Faca login na sua conta Manas Investem." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="theme-color" content="#ff6a00" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="auth-page">
+  <!-- Header -->
   <header class="header">
     <div class="container nav">
       <a href="/" class="brand">
@@ -16,50 +18,110 @@
         <span class="brand-text">Manas <strong>Investem</strong></span>
       </a>
       <div class="nav-links">
-        <a href="/cadastro" class="btn btn--primary btn--small">Cadastre-se</a>
+        <a href="/cadastro" class="btn btn--primary btn--small">Criar conta</a>
       </div>
     </div>
   </header>
 
+  <!-- Auth Section -->
   <section class="auth-section">
     <div class="container">
       <div class="auth-card">
-        <h1>Bem-vinda de volta!</h1>
-        <p class="auth-subtitle">Entre na sua conta</p>
+        <div class="text-center">
+          <h1>Bem-vinda de volta!</h1>
+          <p class="auth-subtitle">Entre na sua conta para continuar</p>
+        </div>
 
         <form id="form-login" class="auth-form">
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required placeholder="seu@email.com" />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="seu@email.com"
+              autocomplete="email"
+            />
           </div>
 
           <div class="form-group">
             <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" required placeholder="Sua senha" />
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              required
+              placeholder="Sua senha"
+              autocomplete="current-password"
+            />
           </div>
 
-          <div id="mensagem-erro" class="mensagem mensagem--erro" style="display: none;"></div>
+          <div id="mensagem-erro" class="mensagem mensagem--erro" style="display: none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="15" y1="9" x2="9" y2="15"/>
+              <line x1="9" y1="9" x2="15" y2="15"/>
+            </svg>
+            <span id="erro-texto"></span>
+          </div>
 
-          <button type="submit" class="btn btn--primary btn--full">Entrar</button>
+          <button type="submit" class="btn btn--primary btn--full" id="btn-login">
+            <span id="btn-texto">Entrar</span>
+            <svg id="btn-loading" style="display: none;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="animate-spin">
+              <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
+              <path d="M12 2a10 10 0 0 1 10 10" stroke-opacity="1"/>
+            </svg>
+          </button>
         </form>
 
         <p class="auth-footer">
-          Não tem conta? <a href="/cadastro">Cadastre-se grátis</a>
+          Nao tem conta? <a href="/cadastro">Cadastre-se gratis</a>
         </p>
       </div>
     </div>
   </section>
 
+  <style>
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin {
+      animation: spin 1s linear infinite;
+    }
+  </style>
+
   <script>
     const form = document.getElementById('form-login');
     const msgErro = document.getElementById('mensagem-erro');
+    const erroTexto = document.getElementById('erro-texto');
+    const btnLogin = document.getElementById('btn-login');
+    const btnTexto = document.getElementById('btn-texto');
+    const btnLoading = document.getElementById('btn-loading');
+
+    function setLoading(loading) {
+      btnLogin.disabled = loading;
+      btnTexto.style.display = loading ? 'none' : 'inline';
+      btnLoading.style.display = loading ? 'inline' : 'none';
+    }
+
+    function showError(message) {
+      erroTexto.textContent = message;
+      msgErro.style.display = 'flex';
+    }
+
+    function hideError() {
+      msgErro.style.display = 'none';
+    }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      msgErro.style.display = 'none';
+      hideError();
+      setLoading(true);
 
       const dados = {
-        email: document.getElementById('email').value,
+        email: document.getElementById('email').value.trim().toLowerCase(),
         senha: document.getElementById('senha').value
       };
 
@@ -75,14 +137,17 @@
         if (resposta.ok) {
           window.location.href = '/dashboard';
         } else {
-          msgErro.textContent = resultado.erro;
-          msgErro.style.display = 'block';
+          showError(resultado.erro || 'Email ou senha incorretos.');
+          setLoading(false);
         }
       } catch (error) {
-        msgErro.textContent = 'Erro ao conectar com o servidor';
-        msgErro.style.display = 'block';
+        showError('Erro ao conectar com o servidor. Verifique sua conexao.');
+        setLoading(false);
       }
     });
+
+    // Focus no primeiro campo ao carregar
+    document.getElementById('email').focus();
   </script>
 </body>
 </html>
