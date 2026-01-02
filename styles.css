@@ -266,6 +266,30 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--primary-glow);
 }
 
+.nav-link--disabled {
+  color: var(--gray-400);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.nav-link--disabled:hover {
+  color: var(--gray-400);
+  background: transparent;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--gray-400);
+  border-radius: var(--radius-full);
+  margin-left: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .user-greeting {
   padding: 10px 16px;
   font-size: 0.9rem;
