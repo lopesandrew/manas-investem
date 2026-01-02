@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard — Manas Investem</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="theme-color" content="#ff6a00" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dashboard-page">
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <span class="logo-circle">M</span>
+        <span class="brand-text">Manas <strong>Investem</strong></span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <span id="user-greeting" class="user-greeting"></span>
+        <a href="/perfil" class="nav-link">Meu Perfil</a>
+        <button id="btn-logout" class="btn btn--outline btn--small">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Content -->
+  <section class="dashboard-section">
+    <div class="container">
+      <!-- Header -->
+      <div class="dashboard-header">
+        <h1>Olá, <span id="nome-usuario">Investidora</span>!</h1>
+        <p>Bem-vinda a sua área exclusiva. Continue sua jornada de investimentos.</p>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="dashboard-grid">
+        <!-- Card: Perfil -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-header">
+            <div class="dashboard-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <h3>Seu Perfil</h3>
+          </div>
+
+          <div class="profile-info" id="perfil-info">
+            <div class="profile-row">
+              <span class="profile-label">Email</span>
+              <span class="profile-value" id="info-email">-</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Idade</span>
+              <span class="profile-value" id="info-idade">-</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Cidade</span>
+              <span class="profile-value" id="info-cidade">-</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Membro desde</span>
+              <span class="profile-value" id="info-desde">-</span>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <a href="/perfil" class="btn btn--outline btn--small">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+              </svg>
+              Editar perfil
+            </a>
+          </div>
+        </div>
+
+        <!-- Card: Próximos Passos -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-header">
+            <div class="dashboard-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3>Próximos Passos</h3>
+          </div>
+
+          <ul class="checklist">
+            <li class="checklist-item checklist-item--done">Criar sua conta</li>
+            <li class="checklist-item">Descobrir seu perfil de investidora</li>
+            <li class="checklist-item">Assistir primeira aula</li>
+            <li class="checklist-item">Fazer seu primeiro investimento</li>
+          </ul>
+        </div>
+
+        <!-- Card: Questionario -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-header">
+            <div class="dashboard-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <h3>Questionario de Perfil</h3>
+          </div>
+
+          <p>Descubra qual é o seu perfil de investidora: conservadora, moderada ou arrojada.</p>
+          <p class="text-muted" style="font-size: 0.875rem; margin-bottom: 20px;">Leva apenas 3 minutos para responder.</p>
+
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpnN3eovh11E_9XyTJtzK_Vwrwrs9ewqMFcHMQjZsZ7-y_g/viewform" target="_blank" rel="noopener" class="btn btn--primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+            Responder questionario
+          </a>
+        </div>
+
+        <!-- Card: Recursos -->
+        <div class="dashboard-card">
+          <div class="dashboard-card-header">
+            <div class="dashboard-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+            </div>
+            <h3>Recursos</h3>
+          </div>
+
+          <p>Acesse conteúdos exclusivos para começar sua jornada de investimentos.</p>
+
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 20px;">
+            <a href="https://instagram.com/manasinvestem" target="_blank" rel="noopener" class="btn btn--outline btn--small" style="justify-content: flex-start;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+              Seguir no Instagram
+            </a>
+            <a href="mailto:contato@manasinvestem.com.br" class="btn btn--ghost btn--small" style="justify-content: flex-start;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Entrar em contato
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Manas Investem. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Verificar se esta logada
+    async function verificarLogin() {
+      try {
+        const resposta = await fetch('/api/verificar-sessao');
+        const dados = await resposta.json();
+
+        if (!dados.logada) {
+          window.location.href = '/login';
+          return;
+        }
+
+        carregarPerfil();
+      } catch (error) {
+        window.location.href = '/login';
+      }
+    }
+
+    async function carregarPerfil() {
+      try {
+        const resposta = await fetch('/api/usuario');
+        const usuario = await resposta.json();
+
+        const primeiroNome = usuario.nome.split(' ')[0];
+        document.getElementById('nome-usuario').textContent = primeiroNome;
+        document.getElementById('user-greeting').textContent = `Olá, ${primeiroNome}`;
+        document.getElementById('info-email').textContent = usuario.email;
+        document.getElementById('info-idade').textContent = usuario.idade ? `${usuario.idade} anos` : 'Não informada';
+        document.getElementById('info-cidade').textContent = usuario.cidade || 'Não informada';
+
+        const dataCriacao = new Date(usuario.criado_em);
+        document.getElementById('info-desde').textContent = dataCriacao.toLocaleDateString('pt-BR', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        });
+      } catch (error) {
+        console.error('Erro ao carregar perfil:', error);
+      }
+    }
+
+    // Logout
+    document.getElementById('btn-logout').addEventListener('click', async () => {
+      try {
+        await fetch('/api/logout', { method: 'POST' });
+        window.location.href = '/';
+      } catch (error) {
+        console.error('Erro ao fazer logout:', error);
+        window.location.href = '/';
+      }
+    });
+
+    verificarLogin();
+  </script>
+</body>
+</html>
