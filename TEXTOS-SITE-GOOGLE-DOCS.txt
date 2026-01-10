@@ -1,0 +1,308 @@
+TEXTOS DO SITE - MANAS INVESTEM
+================================
+
+Para revisão de: Flávia Lanat
+Site: https://lopesandrew.github.io/manas-investem/
+
+────────────────────────────────────────────────────────────────────────────────
+
+MENU (Aparece no topo de todas as páginas)
+
+• Início
+• Quem Somos
+• Contato
+• Evento Presencial [Em breve] ← aparece desabilitado
+
+────────────────────────────────────────────────────────────────────────────────
+
+PÁGINA INICIAL
+Esta é a primeira página que o visitante vê ao acessar o site
+
+────────────────────────────────────────────────────────────────────────────────
+
+HERO (Banner principal - primeira coisa que aparece)
+
+Badge (texto pequeno acima do título - mostra o gap de gênero):
+Apenas 8% das mulheres investem, contra 14% dos homens — ANBIMA 2024
+
+Título principal:
+Seu dinheiro merece trabalhar por você.
+
+Subtítulo (texto abaixo do título - conecta o dado à nossa missão):
+A Manas Investem existe para mudar essa estatística. Somos um espaço de educação financeira independente, feito por e para mulheres que querem começar a investir com segurança — sem jargões, sem vendas, só conhecimento.
+
+Botões:
+• Botão laranja: "Responder questionário" → leva para o Google Forms
+• Botão branco: "Saiba mais" → desce a página
+
+Estatísticas (3 números em destaque abaixo dos botões):
+
+  50%        das mulheres querem começar a investir
+  1.25M      já investem na B3
+  658%       crescimento em 5 anos
+
+Fonte das estatísticas: ANBIMA Raio-X do Investidor 2024 e B3
+
+────────────────────────────────────────────────────────────────────────────────
+
+COMO FUNCIONA (3 cards explicativos)
+
+Título da seção: Três passos para começar
+
+Texto introdutório: Sem pressa, sem julgamento. Você avança no seu ritmo — estamos aqui para te acompanhar.
+
+Card 1 - Ícone com número "1"
+  Título: Conte um pouco sobre você
+  Texto: Responda nosso questionário rápido. Queremos entender sua realidade e seus objetivos — sem fórmulas prontas.
+
+Card 2 - Ícone com número "2"
+  Título: Descubra seu perfil
+  Texto: Analisamos suas respostas para identificar seu perfil de investidora. Cada mulher tem um caminho único.
+
+Card 3 - Ícone com número "3"
+  Título: Receba orientações personalizadas
+  Texto: Enviamos conteúdo educacional e dicas práticas para você começar a investir com confiança — sempre de forma independente.
+
+────────────────────────────────────────────────────────────────────────────────
+
+ESTATÍSTICAS (faixa com fundo escuro)
+4 números em destaque sobre mulheres investidoras
+
+Título da seção: O movimento já começou
+
+Texto introdutório: Cada vez mais mulheres estão assumindo o controle das suas finanças. Os números mostram: esse é o momento de começar.
+
+  1.25M      Mulheres na B3               Fonte: B3, março 2024
+  903k       No Tesouro Direto            +260% em 5 anos
+  47%        Buscam segurança financeira  Principal motivação
+  50%        Querem começar a investir    Fonte: ANBIMA 2024
+
+────────────────────────────────────────────────────────────────────────────────
+
+DIFERENCIAIS (6 cards com ícones)
+
+Label: Nossos princípios
+
+Título da seção: Por que a Manas Investem?
+
+Texto introdutório: Não vendemos produtos financeiros. Não temos conflito de interesse. Nossa única missão é educar.
+
+Card 1 - Ícone de escudo
+  Título: 100% independentes
+  Texto: Não recebemos comissão de corretoras ou instituições financeiras. Nossas orientações são imparciais.
+
+Card 2 - Ícone de coração
+  Título: Feito por mulheres, para mulheres
+  Texto: Entendemos sua realidade. O conteúdo é pensado para quem precisa conciliar trabalho, família e finanças.
+
+Card 3 - Ícone de rosto sorrindo
+  Título: Linguagem acessível
+  Texto: Sem jargões financeiros excludentes ou tom condescendente. Falamos de forma simples e direta.
+
+Card 4 - Ícone de pessoas
+  Título: Encontros presenciais
+  Texto: Eventos físicos criam conexões genuínas que plataformas digitais não replicam. Aprender junto acelera.
+
+Card 5 - Ícone de check
+  Título: Impacto mensurável
+  Texto: Acompanhamos métricas reais: quantas mulheres começaram a investir, quanto investiram, como evoluíram.
+
+Card 6 - Ícone de cadeado
+  Título: Privacidade garantida
+  Texto: Seus dados estão protegidos. Não compartilhamos informações com terceiros.
+
+────────────────────────────────────────────────────────────────────────────────
+
+NEWSLETTER (faixa para assinar email)
+
+Título: Fique por dentro
+
+Texto: Receba dicas práticas, notícias do mercado e conteúdo educacional diretamente no seu email. Gratuito, sem spam, e você pode cancelar quando quiser.
+
+Botão: Assinar Newsletter → leva para o Substack
+
+────────────────────────────────────────────────────────────────────────────────
+
+CTA FINAL (chamada para ação - faixa laranja no fim)
+
+Título: Pronta para dar o primeiro passo?
+
+Texto: O questionário leva menos de 5 minutos. Descubra seu perfil de investidora e comece sua jornada com a gente.
+
+Botão: Responder questionário → leva para o Google Forms
+
+================================================================================
+
+PÁGINA QUEM SOMOS
+Página que conta a história e apresenta a equipe
+
+────────────────────────────────────────────────────────────────────────────────
+
+HERO (Banner no topo)
+
+Título: Quem Somos
+
+Subtítulo: Conheça a história e a equipe por trás da Manas Investem
+
+────────────────────────────────────────────────────────────────────────────────
+
+MISSÃO (citação em destaque)
+
+Label: Nossa Missão
+
+Texto da missão:
+"Democratizar a educação financeira para mulheres brasileiras, criando espaços seguros — presenciais e digitais — para aprendizado, troca de experiências e tomada de decisões financeiras autônomas, com total independência editorial."
+
+Contexto (texto adicional que conecta estatísticas à missão):
+Hoje, apenas 8% das mulheres investem, contra 14% dos homens (ANBIMA, 2024). Mas 50% querem começar. A Manas Investem existe para transformar essa vontade em ação — sem vender produtos, sem conflito de interesse, só conhecimento de qualidade.
+
+────────────────────────────────────────────────────────────────────────────────
+
+VALORES (4 cards)
+
+Label: Nossos pilares
+
+Título da seção: Valores
+
+Texto introdutório: Os princípios que guiam tudo o que fazemos na Manas Investem.
+
+Card 1 - Ícone de escudo
+  Título: Independência Editorial
+  Texto: Nunca recomendamos produtos financeiros específicos. Não recebemos comissão de corretoras ou instituições. Nossas orientações são 100% imparciais.
+
+Card 2 - Ícone de pessoas
+  Título: Comunidade Presencial
+  Texto: Eventos físicos criam conexões genuínas que plataformas digitais não replicam. Aprender junto, trocar experiências, construir confiança.
+
+Card 3 - Ícone de check
+  Título: Impacto Mensurável
+  Texto: Acompanhamos métricas reais: quantas mulheres começaram a investir, quanto investiram, como evoluíram. Nosso impacto é genuíno e documentado.
+
+Card 4 - Ícone de rosto sorrindo
+  Título: Linguagem Acessível
+  Texto: Sem jargão financeiro excludente ou tom condescendente. Falamos de investimentos de forma simples, direta e acolhedora.
+
+────────────────────────────────────────────────────────────────────────────────
+
+EQUIPE (card da fundadora)
+
+Label: A equipe
+
+Título da seção: Quem está por trás
+
+Texto introdutório: Conheça as pessoas que fazem a Manas Investem acontecer.
+
+Flávia Lanat
+  Cargo: Fundadora & CEO
+  Foto: Iniciais "FL" (placeholder - substituir por foto real)
+  Bio: Bacharel em Direito pela PUC-Rio, com LL.M. em International Dispute Resolution pela IE Law School (Espanha), onde foi bolsista do programa Futuros Líderes. Inscrita na OAB/RJ, OAB/SP e na Ordem dos Advogados de Portugal. Atuou na advocacia empresarial antes de fundar a Manas Investem com a missão de democratizar a educação financeira para mulheres brasileiras.
+
+────────────────────────────────────────────────────────────────────────────────
+
+CTA (chamada para ação no fim)
+
+Título: Faça parte dessa comunidade
+
+Texto: O primeiro passo é o mais importante. Responda nosso questionário e descubra seu perfil de investidora.
+
+Botão: Responder questionário
+
+================================================================================
+
+PÁGINA DE CONTATO
+Página com informações para entrar em contato
+
+────────────────────────────────────────────────────────────────────────────────
+
+HERO (Banner no topo)
+
+Título: Fale conosco
+
+Subtítulo: Tem alguma dúvida ou sugestão? Estamos aqui para ajudar!
+
+────────────────────────────────────────────────────────────────────────────────
+
+INFORMAÇÕES DE CONTATO (coluna esquerda)
+
+Título: Informações de contato
+
+Texto: Escolha a melhor forma de entrar em contato conosco.
+
+Email: contato@manasinvestem.com.br
+
+────────────────────────────────────────────────────────────────────────────────
+
+REDES SOCIAIS (lista de links)
+
+Título: Redes sociais
+
+  Instagram     Ativo        @manasinvestem
+  Newsletter    Ativo        Substack
+  TikTok        Ativo        @manasinvestem
+  LinkedIn      Em breve     Aparece desabilitado
+  YouTube       Em breve     Aparece desabilitado
+
+────────────────────────────────────────────────────────────────────────────────
+
+FORMULÁRIO (coluna direita)
+
+Título: Envie uma mensagem
+
+Status atual: Placeholder - "Formulário de contato em breve"
+
+Texto temporário: Enquanto isso, envie email para: contato@manasinvestem.com.br
+
+Nota: Precisa criar o Google Forms de contato e inserir o link aqui
+
+================================================================================
+
+FOOTER (Rodapé - aparece em todas as páginas)
+
+Copyright: © 2026 Manas Investem. Todos os direitos reservados.
+
+Links (em ordem):
+1. Instagram
+2. TikTok
+3. Newsletter
+4. Pesquisa
+5. Contato
+
+================================================================================
+
+SEO (Textos que aparecem no Google)
+Estes textos aparecem quando alguém pesquisa no Google
+
+Página Inicial
+  Título da aba: Manas Investem — Educação financeira para mulheres
+  Descrição no Google: Manas Investem: educação financeira independente para mulheres brasileiras. Aprenda a investir com segurança, sem complicação.
+
+Página Quem Somos
+  Título da aba: Quem Somos — Manas Investem
+  Descrição no Google: Conheça a Manas Investem: nossa missão, valores e a equipe por trás da educação financeira para mulheres brasileiras.
+
+Página Contato
+  Título da aba: Contato — Manas Investem
+  Descrição no Google: Entre em contato com a Manas Investem. Estamos aqui para ajudar você a começar sua jornada de investimentos.
+
+================================================================================
+
+LINKS DO SITE
+
+Para referência:
+
+• Questionário de Perfil: https://docs.google.com/forms/d/e/1FAIpQLSdOpnN3eovh11E_9XyTJtzK_Vwrwrs9ewqMFcHMQjZsZ7-y_g/viewform
+• Newsletter: https://substack.com/@manasinvestem
+• Instagram: https://instagram.com/manasinvestem
+• TikTok: https://www.tiktok.com/@manasinvestem
+• Email: contato@manasinvestem.com.br
+
+================================================================================
+
+PENDÊNCIAS
+
+[ ] Criar Google Forms de contato
+[ ] Adicionar foto real da Flávia no lugar do placeholder
+[ ] Criar perfil do LinkedIn
+[ ] Criar canal do YouTube
+
+================================================================================
