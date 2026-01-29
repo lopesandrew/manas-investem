@@ -14,7 +14,7 @@
   <meta property="og:title" content="Manas Investem — Educação financeira para mulheres" />
   <meta property="og:description" content="Um espaço feito por e para mulheres que querem começar a investir com segurança." />
   <meta property="og:url" content="https://manasinvestem.com.br" />
-  <meta name="theme-color" content="#ff6a00" />
+  <meta name="theme-color" content="#E06A9B" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -23,8 +23,7 @@
   <header class="header" id="header">
     <div class="container nav">
       <a href="index.html" class="brand">
-        <span class="logo-circle">M</span>
-        <span class="brand-text">Manas <strong>Investem</strong></span>
+        <img src="images/logo/logo-pink.png" alt="Manas Investem" class="brand-logo" />
       </a>
 
       <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
@@ -34,277 +33,80 @@
       </button>
 
       <div class="nav-links" id="nav-links">
-        <a href="index.html" class="nav-link nav-link--active">Inicio</a>
+        <a href="index.html" class="nav-link nav-link--active">Início</a>
         <a href="quem-somos.html" class="nav-link">Quem Somos</a>
+        <div class="nav-item-dropdown">
+          <a href="evento.html" class="nav-link">Agenda</a>
+          <div class="nav-dropdown">
+            <a href="evento-rj.html" class="nav-dropdown-link">Encontro RJ — 28/02</a>
+            <a href="evento-sp.html" class="nav-dropdown-link">Encontro SP — 06/03</a>
+          </div>
+        </div>
         <a href="contato.html" class="nav-link">Contato</a>
-        <a href="evento.html" class="nav-link">Agenda</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section: green bg, yellow logo, quote -->
   <section class="hero">
     <div class="hero-content">
-      <h1 class="display-1">
-        Mulheres são a maioria da população brasileira, mas elas ainda são a <span class="text-gradient">minoria investindo no mercado financeiro.</span>
-      </h1>
-
-      <p class="lead">
-        O <strong>Manas Investem</strong> é uma comunidade que fala de maneira fácil, simples e descomplicada sobre independência financeira e mercado financeiro para o público feminino, com o objetivo de incentivar meninas e mulheres a multiplicarem sua renda de forma segura por meio de investimentos, conquistando, assim, autonomia e liberdade para realizar sonhos e construir o famoso pé de meia.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpnN3eovh11E_9XyTJtzK_Vwrwrs9ewqMFcHMQjZsZ7-y_g/viewform" target="_blank" rel="noopener" class="btn btn--primary btn--large">
-          Quero participar
-          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-        <a href="#por-que" class="btn btn--outline btn--large">Saiba mais</a>
-      </div>
-
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-value">104.5M</span>
-          <span class="hero-stat-label">de mulheres no Brasil</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-value">1.6M</span>
-          <span class="hero-stat-label">investindo na Bolsa</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-value"><span class="highlight">50%</span></span>
-          <span class="hero-stat-label">querem começar a investir</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-value">+70%</span>
-          <span class="hero-stat-label">não sabem como começar</span>
-        </div>
-      </div>
-      <p class="hero-source">Fontes: Censo IBGE 2022, ANBIMA 2024, B3, Pesquisa Manas Investem 2025</p>
-
-      <p class="hero-purpose">
-        No <strong>Manas Investem</strong> nosso propósito é reduzir o gap de gênero no mercado financeiro, incentivando e ensinando mulheres a investirem de forma segura e consciente.
-      </p>
+      <img src="images/logo/logo-pink.png" alt="Manas Investem" class="hero-logo" />
+      <p class="hero-quote">O mito de que investir é coisa de homem é, de fato, isso, só um mito.</p>
     </div>
   </section>
 
-  <!-- Como ser uma mana que investe -->
-  <section id="como-funciona" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Como ser uma mana que investe?</h2>
-      </div>
-
-      <div class="features-grid features-grid--5">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-            </svg>
-          </div>
-          <h3>Redes sociais</h3>
-          <p>Conteúdos gratuitos no Instagram, TikTok e LinkedIn para você aprender no seu ritmo.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-          </div>
-          <h3>Newsletter</h3>
-          <p>Conteúdo quinzenal por e-mail e no Substack para você se manter atualizada.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <h3>Encontros</h3>
-          <p>Eventos periódicos femininos para networking, troca de experiências e aprendizado presencial.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-            </svg>
-          </div>
-          <h3>Aulas</h3>
-          <p>Conteúdos sobre diferentes temas do mercado financeiro para você se aprofundar.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <h3>Comunidade</h3>
-          <p>"Geração Manas (que) Investem" — aplicativo exclusivo para troca entre as manas.</p>
-        </div>
-      </div>
-    </div>
+  <!-- Photo Heading Section -->
+  <section class="section-photo-heading">
+    <h2 class="big-heading">Mulheres são a maioria da população, mas são a minoria no mercado financeiro.</h2>
   </section>
 
-  <!-- Stats Section -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-intro stats-intro--highlight">
-        <h2>Manas quando investem, investem muito bem!</h2>
-        <p>Estudos mostram que mulheres investidoras frequentemente superam homens em retornos. Uma pesquisa da Warwick Business School revelou que mulheres têm retornos <strong>1,8% ao ano</strong> superiores aos homens. A Universidade da Califórnia também identificou que mulheres tendem a operar menos e com mais estratégia, o que resulta em melhores resultados a longo prazo.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Por que o Manas Investem -->
-  <section id="por-que" class="section section--gray">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Por que o Manas Investem?</h2>
-      </div>
-
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="1" x2="12" y2="23"/>
-              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-            </svg>
-          </div>
-          <div class="benefit-content">
-            <h3>Independência e autonomia financeira</h3>
-            <p>Nosso objetivo é que você tenha controle sobre seu próprio dinheiro e tome decisões financeiras com segurança.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-              <line x1="9" y1="9" x2="9.01" y2="9"/>
-              <line x1="15" y1="9" x2="15.01" y2="9"/>
-            </svg>
-          </div>
-          <div class="benefit-content">
-            <h3>Acessível (sem mimimi)</h3>
-            <p>Falamos de investimentos de forma simples, direta e sem complicação. Nada de jargões ou termos difíceis.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <div class="benefit-content">
-            <h3>Feito por uma mulher, para outras mulheres</h3>
-            <p>Entendemos sua realidade. O conteúdo é pensado para quem precisa conciliar trabalho, família e finanças.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <div class="benefit-content">
-            <h3>Conexões reais</h3>
-            <p>Eventos presenciais criam conexões genuínas que plataformas digitais não replicam. Aprender junto acelera.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-          </div>
-          <div class="benefit-content">
-            <h3>Conhecimento é poder e segurança</h3>
-            <p>Quanto mais você aprende, mais segura fica para tomar suas próprias decisões de investimento.</p>
-          </div>
-        </div>
-
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-          <div class="benefit-content">
-            <h3>Independência editorial</h3>
-            <p>Não recebemos comissão de corretoras ou instituições financeiras. Nossas orientações são 100% imparciais.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter Section -->
-  <section class="newsletter-section">
-    <div class="container">
-      <div class="newsletter-content">
-        <div class="newsletter-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-        </div>
-        <h2>Fique por dentro</h2>
-        <p>Receba dicas práticas, notícias do mercado e conteúdo financeiro diretamente no seu email. Gratuito, sem spam, e você pode cancelar quando quiser.</p>
-        <a href="https://substack.com/@manasinvestem" target="_blank" rel="noopener" class="btn btn--secondary btn--large">
-          Assinar Newsletter
-          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
+  <!-- Independência Card Section -->
+  <section class="section-card">
+    <div class="card-split">
+      <div class="card-split__pink"></div>
+      <div class="card-split__content">
+        <h2>Independência e autonomia financeira</h2>
+        <p>O Manas Investem é uma comunidade que fala sobre finanças e mercado financeiro para o público feminino de maneira fácil, simples e descomplicada, com o objetivo de incentivar meninas e mulheres a multiplicarem sua renda de forma segura por meio de investimentos, conquistando, assim, autonomia e <strong>independência financeira</strong> para realizar sonhos, montar uma reserva de emergência e construir seu pé de meia.</p>
+        <a href="evento.html" class="btn btn--primary btn--large">
+          Inscrever-se em um de nossos eventos
         </a>
       </div>
     </div>
   </section>
 
-  <!-- CTA Final -->
-  <section class="cta-section">
-    <div class="cta-content">
-      <h2>Pronta para dar o primeiro passo?</h2>
-      <p>Descubra seu perfil de investidora e comece sua jornada com a gente.</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpnN3eovh11E_9XyTJtzK_Vwrwrs9ewqMFcHMQjZsZ7-y_g/viewform" target="_blank" rel="noopener" class="btn btn--primary btn--large">
-        Quero participar
-        <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
+  <!-- Manas quando investem Section -->
+  <section class="section-investem">
+    <div class="investem-split">
+      <div class="investem-split__text">
+        <h2>Manas quando investem, investem muito bem.</h2>
+        <p>Uma pesquisa da Warwick Business School revelou que mulheres têm retornos <strong>1,8% ao ano</strong> superiores aos homens na Bolsa de Londres. A Universidade da Califórnia também identificou que mulheres tendem a operar menos e com mais estratégia, o que resulta em melhores resultados a longo prazo.</p>
+        <a href="https://substack.com/@manasinvestem" target="_blank" rel="noopener" class="btn btn--primary btn--large">
+          Assinar a Newsletter
+        </a>
+      </div>
+      <div class="investem-split__photo">
+        <img src="images/IMG_8230.png" alt="Manas Investem" />
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> Manas Investem. Todos os direitos reservados.</p>
-      <div class="footer-links">
-        <a href="https://instagram.com/manasinvestem" target="_blank" rel="noopener" class="footer-link">Instagram</a>
-        <a href="https://www.tiktok.com/@manasinvestem" target="_blank" rel="noopener" class="footer-link">TikTok</a>
-        <a href="https://www.linkedin.com/company/manas-investem/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
-        <a href="https://substack.com/@manasinvestem" target="_blank" rel="noopener" class="footer-link">Newsletter</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpnN3eovh11E_9XyTJtzK_Vwrwrs9ewqMFcHMQjZsZ7-y_g/viewform" target="_blank" rel="noopener" class="footer-link">Pesquisa</a>
-        <a href="mailto:contato@manasinvestem.com.br" class="footer-link">Contato</a>
+      <img src="images/logo/logo-pink.png" alt="Manas Investem" class="footer-logo" />
+      <div class="footer-nav">
+        <a href="index.html">Início</a>
+        <a href="quem-somos.html">Quem Somos</a>
+        <a href="evento.html">Agenda</a>
+        <a href="contato.html">Contato</a>
       </div>
+      <div class="footer-social">
+        <a href="https://instagram.com/manasinvestem" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@manasinvestem" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.linkedin.com/company/manas-investem/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://substack.com/@manasinvestem" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <p>&copy; <span id="year"></span> Manas Investem</p>
     </div>
   </footer>
 
@@ -329,6 +131,16 @@
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       menuToggle.classList.toggle('active');
+    });
+
+    // Mobile dropdown toggle
+    document.querySelectorAll('.nav-item-dropdown > .nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        }
+      });
     });
 
     // Close menu when clicking on a link

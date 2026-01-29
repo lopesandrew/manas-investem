@@ -3,106 +3,57 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Evento Presencial — Manas Investem</title>
-  <meta name="description" content="Participe do evento presencial gratuito do Manas Investem em Ipanema. Palestra sobre educação financeira, café da manhã e networking. Vagas limitadas!" />
+  <title>Agenda — Manas Investem</title>
+  <meta name="description" content="Confira a agenda de eventos do Manas Investem. Encontros presenciais, virtuais e aulas sobre educação financeira para mulheres." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Evento Presencial — Manas Investem" />
-  <meta property="og:description" content="Evento gratuito de educação financeira para mulheres em Ipanema, RJ. Vagas limitadas!" />
+  <meta property="og:title" content="Agenda — Manas Investem" />
+  <meta property="og:description" content="Confira a agenda de eventos do Manas Investem." />
   <meta property="og:url" content="https://manasinvestem.com.br/evento" />
-  <meta name="theme-color" content="#ff6a00" />
+  <meta name="theme-color" content="#E06A9B" />
 
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Event Page Specific Styles */
-    .event-hero {
-      padding: 140px 24px 80px;
-      background: var(--gradient-hero);
+    /* Agenda Page Styles */
+    .agenda-hero {
+      padding: 120px 24px 60px;
+      background: var(--blush);
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
 
-    .event-hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(255, 106, 0, 0.1) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .event-badges {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
+    .agenda-hero-logo {
+      height: 100px;
+      width: auto;
       margin-bottom: 24px;
     }
 
-    .event-badge {
-      display: inline-block;
-      padding: 8px 16px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border-radius: var(--radius-full);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .event-badge--free {
-      background: var(--success);
-      color: var(--white);
-    }
-
-    .event-badge--limited {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    .event-hero h1 {
+    .agenda-hero h1 {
+      font-family: var(--font-display);
       font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      color: var(--gray-900);
-      margin-bottom: 24px;
-      position: relative;
+      font-weight: 700;
+      color: var(--marsala);
+      margin-bottom: 16px;
     }
 
-    .event-meta {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 32px;
-      margin-bottom: 32px;
-    }
-
-    .event-meta-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .agenda-hero p {
       font-size: 1.1rem;
-      color: var(--gray-700);
-    }
-
-    .event-meta-item svg {
-      color: var(--primary);
-    }
-
-    .event-description {
-      font-size: 1.15rem;
-      color: var(--gray-600);
-      max-width: 600px;
-      margin: 0 auto 32px;
+      color: var(--marsala);
+      max-width: 700px;
+      margin: 0 auto;
       line-height: 1.7;
     }
 
-    /* Event Cards */
-    .event-cards {
+    /* Category Grid */
+    .agenda-categories {
+      padding: 60px 24px;
+      background: var(--white);
+    }
+
+    .categories-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
@@ -110,134 +61,141 @@
       margin: 0 auto;
     }
 
-    .event-card {
-      background: var(--white);
+    .category-col {
+      border: 2px solid var(--gray-200);
       border-radius: var(--radius-xl);
-      padding: 32px 24px;
-      text-align: center;
-      border: 1px solid var(--gray-100);
-      transition: var(--transition);
+      overflow: hidden;
     }
 
-    .event-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary);
-    }
-
-    .event-card-icon {
-      width: 64px;
-      height: 64px;
-      background: var(--primary-glow);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      color: var(--primary);
-    }
-
-    .event-card h3 {
-      font-size: 1.25rem;
+    .category-header {
+      background: var(--marsala);
+      color: var(--white);
+      padding: 16px 20px;
+      font-size: 0.85rem;
       font-weight: 700;
-      color: var(--gray-900);
-      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: center;
     }
 
-    .event-card p {
+    .category-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 120px;
+    }
+
+    .category-event {
       font-size: 0.95rem;
-      color: var(--gray-600);
-      line-height: 1.6;
+      color: var(--gray-700);
+      line-height: 1.5;
+    }
+
+    .category-event a {
+      color: var(--primary);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .category-event a:hover {
+      color: var(--marsala);
     }
 
     @media (max-width: 768px) {
-      .event-cards {
+      .categories-grid {
         grid-template-columns: 1fr;
       }
-
-      .event-meta {
-        flex-direction: column;
-        gap: 16px;
-      }
     }
 
-    /* Event Details */
-    .event-details {
-      padding: 60px 24px;
-      background: var(--gray-50);
+    /* Event Detail Section */
+    .event-detail-section {
+      padding: 80px 24px;
+      background: var(--white);
     }
 
-    .event-details-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+    .event-detail-wrapper {
       max-width: 800px;
       margin: 0 auto;
-    }
-
-    .event-detail {
       text-align: center;
     }
 
-    .event-detail-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--primary);
-      border-radius: var(--radius);
+    .event-badges {
       display: flex;
-      align-items: center;
       justify-content: center;
-      margin: 0 auto 16px;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .event-badge {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .event-badge--location {
+      background: var(--blue);
+      color: var(--marsala);
+    }
+
+    .event-badge--free {
+      background: var(--green);
+      color: var(--marsala);
+    }
+
+    .event-badge--limited {
+      background: var(--pink);
       color: var(--white);
     }
 
-    .event-detail-label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--gray-500);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
-    }
-
-    .event-detail-value {
-      font-size: 1.1rem;
+    .event-detail-wrapper h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
       font-weight: 700;
-      color: var(--gray-900);
+      color: var(--marsala);
+      margin-bottom: 20px;
     }
 
-    @media (max-width: 768px) {
-      .event-details-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
+    .event-detail-wrapper > p {
+      font-size: 1.1rem;
+      color: var(--gray-700);
+      line-height: 1.7;
+      max-width: 650px;
+      margin: 0 auto 32px;
     }
 
     /* Form Section */
     .event-form-section {
-      padding: 80px 24px;
+      padding: 60px 24px 80px;
+      background: var(--gray-50);
     }
 
     .event-form-wrapper {
       max-width: 950px;
       margin: 0 auto;
+      text-align: center;
     }
 
     .event-form-wrapper h2 {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: 800;
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--marsala);
       margin-bottom: 12px;
     }
 
     .event-form-wrapper > p {
-      text-align: center;
       color: var(--gray-600);
       margin-bottom: 32px;
-    }
-
-    .google-form-container {
-      min-height: 500px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
     }
 
     .google-form-container iframe {
@@ -246,6 +204,54 @@
       border: none;
       border-radius: var(--radius);
     }
+
+    /* Confirmation Section */
+    .event-confirmation {
+      padding: 80px 24px;
+      background: var(--blush);
+      text-align: center;
+    }
+
+    .event-confirmation h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--marsala);
+      margin-bottom: 16px;
+    }
+
+    .event-confirmation p {
+      font-size: 1.05rem;
+      color: var(--marsala);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .event-confirmation .btn {
+      display: inline-flex;
+    }
+
+    /* Footer override for this page */
+    .agenda-footer {
+      padding: 32px 24px;
+      background: var(--marsala);
+      text-align: center;
+    }
+
+    .agenda-footer p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .agenda-footer a {
+      color: var(--pink);
+      text-decoration: none;
+    }
+
+    .agenda-footer a:hover {
+      color: var(--white);
+    }
   </style>
 </head>
 <body>
@@ -253,8 +259,7 @@
   <header class="header" id="header">
     <div class="container nav">
       <a href="index.html" class="brand">
-        <span class="logo-circle">M</span>
-        <span class="brand-text">Manas <strong>Investem</strong></span>
+        <img src="images/logo/logo-pink.png" alt="Manas Investem" class="brand-logo" />
       </a>
 
       <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
@@ -264,164 +269,53 @@
       </button>
 
       <div class="nav-links" id="nav-links">
-        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="index.html" class="nav-link">Início</a>
         <a href="quem-somos.html" class="nav-link">Quem Somos</a>
+        <div class="nav-item-dropdown">
+          <a href="evento.html" class="nav-link nav-link--active">Agenda</a>
+          <div class="nav-dropdown">
+            <a href="evento-rj.html" class="nav-dropdown-link">Encontro RJ — 28/02</a>
+            <a href="evento-sp.html" class="nav-dropdown-link">Encontro SP — 06/03</a>
+          </div>
+        </div>
         <a href="contato.html" class="nav-link">Contato</a>
-        <a href="evento.html" class="nav-link nav-link--active">Agenda</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="event-hero">
+  <!-- Agenda Hero -->
+  <section class="agenda-hero">
     <div class="container">
-      <div class="event-badges">
-        <span class="event-badge event-badge--free">Gratuito</span>
-        <span class="event-badge event-badge--limited">30 vagas</span>
-      </div>
-
-      <h1>Manas Investem<br>Encontro Presencial</h1>
-
-      <div class="event-meta">
-        <div class="event-meta-item">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-            <line x1="16" y1="2" x2="16" y2="6"/>
-            <line x1="8" y1="2" x2="8" y2="6"/>
-            <line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
-          <span><strong>28 de fevereiro de 2026</strong></span>
-        </div>
-        <div class="event-meta-item">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-          <span>10h às 13h</span>
-        </div>
-        <div class="event-meta-item">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          <span>Ipanema, Rio de Janeiro</span>
-        </div>
-      </div>
-
-      <p class="event-description">
-        Um encontro exclusivo para mulheres que querem aprender sobre investimentos de forma leve e descomplicada. Venha tomar um café da manhã conosco e dar o primeiro passo na sua jornada financeira!
-      </p>
-
-      <a href="#inscricao" class="btn btn--primary btn--large">
-        Quero participar
-        <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
+      <img src="images/logo/logo-green.png" alt="Manas Investem" class="agenda-hero-logo" />
+      <h1>Agenda de eventos</h1>
+      <p>Algumas mulheres compram bolsas, outras mulheres vão à Bolsa e há mulheres que já descobriram como comprar bolsas (ou o que elas quiserem) com os rendimentos da Bolsa.</p>
     </div>
   </section>
 
-  <!-- O que vai rolar -->
-  <section class="section">
+  <!-- Categories Grid -->
+  <section class="agenda-categories">
     <div class="container">
-      <div class="section-header">
-        <span class="section-label">O que vai rolar</span>
-        <h2 class="section-title">Uma manhã de aprendizado e conexões</h2>
-      </div>
-
-      <div class="event-cards">
-        <div class="event-card">
-          <div class="event-card-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-            </svg>
+      <div class="categories-grid">
+        <div class="category-col">
+          <div class="category-header">Aulas</div>
+          <div class="category-body">
+            <div class="category-event">_/03/2026 — "Como começar a investir no mercado financeiro?"</div>
           </div>
-          <h3>Palestra</h3>
-          <p>Educação financeira de forma simples e acessível. Aprenda conceitos essenciais para começar a investir.</p>
         </div>
 
-        <div class="event-card">
-          <div class="event-card-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
-              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-              <line x1="6" y1="1" x2="6" y2="4"/>
-              <line x1="10" y1="1" x2="10" y2="4"/>
-              <line x1="14" y1="1" x2="14" y2="4"/>
-            </svg>
+        <div class="category-col">
+          <div class="category-header">Encontros Presenciais</div>
+          <div class="category-body">
+            <div class="category-event"><a href="evento-rj.html">28/02/2026 — Rio de Janeiro, 10h às 13h.</a></div>
+            <div class="category-event"><a href="evento-sp.html">06/03/2026 — São Paulo, 8h30 às 11h.</a></div>
           </div>
-          <h3>Café da manhã</h3>
-          <p>Um delicioso café da manhã para começar o dia com energia e boas conversas.</p>
         </div>
 
-        <div class="event-card">
-          <div class="event-card-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
+        <div class="category-col">
+          <div class="category-header">Encontros Virtuais</div>
+          <div class="category-body">
+            <div class="category-event" style="color: var(--gray-400); font-style: italic;">Em breve</div>
           </div>
-          <h3>Networking</h3>
-          <p>Conecte-se com outras mulheres que também estão começando sua jornada de investimentos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Detalhes -->
-  <section class="event-details">
-    <div class="container">
-      <div class="event-details-grid">
-        <div class="event-detail">
-          <div class="event-detail-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-          </div>
-          <div class="event-detail-label">Data</div>
-          <div class="event-detail-value">28/02/2026 (Sábado)</div>
-        </div>
-
-        <div class="event-detail">
-          <div class="event-detail-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
-          </div>
-          <div class="event-detail-label">Horário</div>
-          <div class="event-detail-value">10h às 13h</div>
-        </div>
-
-        <div class="event-detail">
-          <div class="event-detail-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-          </div>
-          <div class="event-detail-label">Local</div>
-          <div class="event-detail-value">Ipanema, Rio de Janeiro</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Formulário de Inscrição -->
-  <section id="inscricao" class="event-form-section">
-    <div class="container">
-      <div class="event-form-wrapper">
-        <h2>Garanta sua vaga</h2>
-        <p>Preencha o formulário abaixo para se inscrever. As vagas são limitadas!</p>
-
-        <div class="google-form-container">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeFnWRk22eUQF0-W4P6LydJPiySp_GpTQpR6S5bq65ZyZ6j5Q/viewform?embedded=true" width="900" height="1500" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
         </div>
       </div>
     </div>
@@ -430,15 +324,20 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> Manas Investem. Todos os direitos reservados.</p>
-      <div class="footer-links">
-        <a href="https://instagram.com/manasinvestem" target="_blank" rel="noopener" class="footer-link">Instagram</a>
-        <a href="https://www.tiktok.com/@manasinvestem" target="_blank" rel="noopener" class="footer-link">TikTok</a>
-        <a href="https://www.linkedin.com/company/manas-investem/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
-        <a href="https://substack.com/@manasinvestem" target="_blank" rel="noopener" class="footer-link">Newsletter</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpnN3eovh11E_9XyTJtzK_Vwrwrs9ewqMFcHMQjZsZ7-y_g/viewform" target="_blank" rel="noopener" class="footer-link">Pesquisa</a>
-        <a href="mailto:contato@manasinvestem.com.br" class="footer-link">Contato</a>
+      <img src="images/logo/logo-pink.png" alt="Manas Investem" class="footer-logo" />
+      <div class="footer-nav">
+        <a href="index.html">Início</a>
+        <a href="quem-somos.html">Quem Somos</a>
+        <a href="evento.html">Agenda</a>
+        <a href="contato.html">Contato</a>
       </div>
+      <div class="footer-social">
+        <a href="https://instagram.com/manasinvestem" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@manasinvestem" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.linkedin.com/company/manas-investem/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://substack.com/@manasinvestem" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <p>&copy; <span id="year"></span> Manas Investem</p>
     </div>
   </footer>
 
@@ -463,6 +362,16 @@
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       menuToggle.classList.toggle('active');
+    });
+
+    // Mobile dropdown toggle
+    document.querySelectorAll('.nav-item-dropdown > .nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        }
+      });
     });
 
     // Close menu when clicking on a link

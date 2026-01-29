@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contato — Manas Investem</title>
-  <meta name="description" content="Entre em contato com a Manas Investem. Estamos aqui para ajudar voce a comecar sua jornada de investimentos." />
+  <meta name="description" content="Entre em contato com a Manas Investem. Estamos aqui para ajudar você a começar sua jornada de investimentos." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -14,17 +14,108 @@
   <meta property="og:title" content="Contato — Manas Investem" />
   <meta property="og:description" content="Entre em contato com a Manas Investem." />
   <meta property="og:url" content="https://manasinvestem.com.br/contato" />
-  <meta name="theme-color" content="#ff6a00" />
+  <meta name="theme-color" content="#E06A9B" />
 
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Contato Hero - Yellow background with decorative M */
+    .contato-hero {
+      position: relative;
+      padding: 160px 24px 120px;
+      background: var(--yellow);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .contato-hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 120%;
+      height: 120%;
+      background: url('images/symbol/symbol-pink.png') center/80% no-repeat;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .contato-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contato-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--coral);
+      margin-bottom: 20px;
+      line-height: 1.2;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contato-hero p {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      color: var(--coral);
+      opacity: 0.8;
+    }
+
+    /* Email Section - Blue/Lilac background */
+    .contato-email {
+      padding: 120px 24px;
+      background: var(--blue);
+      text-align: center;
+    }
+
+    .contato-email-icon {
+      margin-bottom: 32px;
+    }
+
+    .contato-email-icon svg {
+      width: 120px;
+      height: 120px;
+      color: var(--white);
+      stroke-width: 1;
+    }
+
+    .contato-email a {
+      font-family: var(--font-sans);
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contato-email a:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .contato-hero {
+        padding: 130px 24px 90px;
+      }
+
+      .contato-email {
+        padding: 80px 24px;
+      }
+
+      .contato-email-icon svg {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
   <header class="header" id="header">
     <div class="container nav">
       <a href="index.html" class="brand">
-        <span class="logo-circle">M</span>
-        <span class="brand-text">Manas <strong>Investem</strong></span>
+        <img src="images/logo/logo-pink.png" alt="Manas Investem" class="brand-logo" />
       </a>
 
       <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
@@ -34,138 +125,64 @@
       </button>
 
       <div class="nav-links" id="nav-links">
-        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="index.html" class="nav-link">Início</a>
         <a href="quem-somos.html" class="nav-link">Quem Somos</a>
+        <div class="nav-item-dropdown">
+          <a href="evento.html" class="nav-link">Agenda</a>
+          <div class="nav-dropdown">
+            <a href="evento-rj.html" class="nav-dropdown-link">Encontro RJ — 28/02</a>
+            <a href="evento-sp.html" class="nav-dropdown-link">Encontro SP — 06/03</a>
+          </div>
+        </div>
         <a href="contato.html" class="nav-link nav-link--active">Contato</a>
-        <a href="evento.html" class="nav-link">Agenda</a>
       </div>
     </div>
   </header>
 
-  <!-- Contact Hero -->
-  <section class="contact-hero">
+  <!-- Hero -->
+  <section class="contato-hero">
     <div class="container">
-      <h1>Fale conosco</h1>
-      <p>Tem alguma duvida ou sugestao? Estamos aqui para ajudar!</p>
+      <h1>Ficou com alguma dúvida ou tem uma sugestão?</h1>
+      <p>Queremos te ouvir, mana.</p>
     </div>
   </section>
 
-  <!-- Contact Content -->
-  <section class="contact-section">
+  <!-- Email -->
+  <section class="contato-email">
     <div class="container">
-      <div class="contact-grid">
-
-        <!-- Contact Info -->
-        <div class="contact-info">
-          <h2>Informacoes de contato</h2>
-          <p>Escolha a melhor forma de entrar em contato conosco.</p>
-
-          <div class="contact-item">
-            <div class="contact-item-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            <div class="contact-item-content">
-              <h3>Email</h3>
-              <a href="mailto:contato@manasinvestem.com.br">contato@manasinvestem.com.br</a>
-            </div>
-          </div>
-
-          <div class="contact-social">
-            <h3>Redes sociais</h3>
-            <div class="social-links">
-              <a href="https://instagram.com/manasinvestem" target="_blank" rel="noopener" class="social-link" title="Instagram">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                </svg>
-                <span>Instagram</span>
-              </a>
-
-              <a href="https://substack.com/@manasinvestem" target="_blank" rel="noopener" class="social-link" title="Newsletter">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                <span>Newsletter</span>
-              </a>
-
-              <a href="https://www.tiktok.com/@manasinvestem" target="_blank" rel="noopener" class="social-link" title="TikTok">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
-                </svg>
-                <span>TikTok</span>
-              </a>
-
-              <a href="https://www.linkedin.com/company/manas-investem/" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                  <rect x="2" y="9" width="4" height="12"/>
-                  <circle cx="4" cy="4" r="2"/>
-                </svg>
-                <span>LinkedIn</span>
-              </a>
-
-              <a href="#" class="social-link social-link--disabled" title="YouTube - Em breve">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
-                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
-                </svg>
-                <span>YouTube <span class="badge badge--small">Em breve</span></span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact Form - Google Forms Embed -->
-        <div class="contact-form-wrapper">
-          <h2>Envie uma mensagem</h2>
-          <div class="google-form-embed">
-            <!-- SUBSTITUIR PELO IFRAME DO GOOGLE FORMS -->
-            <div class="form-placeholder">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-              </svg>
-              <p>Formulario de contato em breve</p>
-              <span>Enquanto isso, envie email para:</span>
-              <a href="mailto:contato@manasinvestem.com.br" class="btn btn--primary">contato@manasinvestem.com.br</a>
-            </div>
-            <!-- FIM DO PLACEHOLDER - Substituir por:
-            <iframe src="URL_DO_GOOGLE_FORMS_EMBED" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Carregando...</iframe>
-            -->
-          </div>
-        </div>
+      <div class="contato-email-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <path d="M22 4L12 13L2 4" />
+        </svg>
       </div>
+      <a href="mailto:contato@manasinvestem.com.br">contato@manasinvestem.com.br</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> Manas Investem. Todos os direitos reservados.</p>
-      <div class="footer-links">
-        <a href="https://instagram.com/manasinvestem" target="_blank" rel="noopener" class="footer-link">Instagram</a>
-        <a href="https://www.tiktok.com/@manasinvestem" target="_blank" rel="noopener" class="footer-link">TikTok</a>
-        <a href="https://www.linkedin.com/company/manas-investem/" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
-        <a href="https://substack.com/@manasinvestem" target="_blank" rel="noopener" class="footer-link">Newsletter</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpnN3eovh11E_9XyTJtzK_Vwrwrs9ewqMFcHMQjZsZ7-y_g/viewform" target="_blank" rel="noopener" class="footer-link">Pesquisa</a>
-        <a href="mailto:contato@manasinvestem.com.br" class="footer-link">Contato</a>
+      <img src="images/logo/logo-pink.png" alt="Manas Investem" class="footer-logo" />
+      <div class="footer-nav">
+        <a href="index.html">Início</a>
+        <a href="quem-somos.html">Quem Somos</a>
+        <a href="evento.html">Agenda</a>
+        <a href="contato.html">Contato</a>
       </div>
+      <div class="footer-social">
+        <a href="https://instagram.com/manasinvestem" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@manasinvestem" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.linkedin.com/company/manas-investem/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://substack.com/@manasinvestem" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <p>&copy; <span id="year"></span> Manas Investem</p>
     </div>
   </footer>
 
   <script>
-    // Ano atual no footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Header scroll effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
@@ -175,7 +192,6 @@
       }
     });
 
-    // Mobile menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
 
@@ -184,7 +200,15 @@
       menuToggle.classList.toggle('active');
     });
 
-    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-item-dropdown > .nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        }
+      });
+    });
+
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');

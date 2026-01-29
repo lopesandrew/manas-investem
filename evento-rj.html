@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Encontro RJ — Manas Investem</title>
+  <meta name="description" content="Encontro presencial Manas Investem no Rio de Janeiro. 28/02/2026, 10h às 13h em Ipanema. Inscreva-se!" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Encontro RJ — Manas Investem" />
+  <meta property="og:description" content="Encontro presencial Manas Investem no Rio de Janeiro. 28/02/2026, 10h às 13h." />
+  <meta property="og:url" content="https://manasinvestem.com.br/evento-rj" />
+  <meta name="theme-color" content="#E06A9B" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .agenda-hero {
+      padding: 120px 24px 60px;
+      background: var(--blush);
+      text-align: center;
+    }
+
+    .agenda-hero-logo {
+      height: 100px;
+      width: auto;
+      margin-bottom: 24px;
+    }
+
+    .agenda-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--marsala);
+      margin-bottom: 16px;
+    }
+
+    .agenda-hero p {
+      font-size: 1.1rem;
+      color: var(--marsala);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .event-detail-section {
+      padding: 80px 24px;
+      background: var(--white);
+    }
+
+    .event-detail-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .event-badges {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .event-badge {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .event-badge--date {
+      background: var(--lilac);
+      color: var(--marsala);
+    }
+
+    .event-badge--location {
+      background: var(--blue);
+      color: var(--marsala);
+    }
+
+    .event-badge--free {
+      background: var(--green);
+      color: var(--marsala);
+    }
+
+    .event-badge--limited {
+      background: var(--pink);
+      color: var(--white);
+    }
+
+    .event-detail-wrapper h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--marsala);
+      margin-bottom: 20px;
+    }
+
+    .event-detail-wrapper > p {
+      font-size: 1.1rem;
+      color: var(--gray-700);
+      line-height: 1.7;
+      max-width: 650px;
+      margin: 0 auto 32px;
+    }
+
+    .event-form-section {
+      padding: 60px 24px 80px;
+      background: var(--gray-50);
+    }
+
+    .event-form-wrapper {
+      max-width: 950px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .event-form-wrapper > p {
+      color: var(--gray-600);
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .google-form-container iframe {
+      width: 100%;
+      min-height: 500px;
+      border: none;
+      border-radius: var(--radius);
+    }
+
+    .event-confirmation {
+      padding: 80px 24px;
+      background: var(--blush);
+      text-align: center;
+    }
+
+    .event-confirmation h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--marsala);
+      margin-bottom: 16px;
+    }
+
+    .event-confirmation p {
+      font-size: 1.05rem;
+      color: var(--marsala);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .event-confirmation .btn {
+      display: inline-flex;
+    }
+
+    .agenda-footer {
+      padding: 32px 24px;
+      background: var(--marsala);
+      text-align: center;
+    }
+
+    .agenda-footer p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .agenda-footer a {
+      color: var(--pink);
+      text-decoration: none;
+    }
+
+    .agenda-footer a:hover {
+      color: var(--white);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="images/logo/logo-pink.png" alt="Manas Investem" class="brand-logo" />
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="quem-somos.html" class="nav-link">Quem Somos</a>
+        <div class="nav-item-dropdown">
+          <a href="evento.html" class="nav-link nav-link--active">Agenda</a>
+          <div class="nav-dropdown">
+            <a href="evento-rj.html" class="nav-dropdown-link">Encontro RJ — 28/02</a>
+            <a href="evento-sp.html" class="nav-dropdown-link">Encontro SP — 06/03</a>
+          </div>
+        </div>
+        <a href="contato.html" class="nav-link">Contato</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="agenda-hero">
+    <div class="container">
+      <img src="images/logo/logo-green.png" alt="Manas Investem" class="agenda-hero-logo" />
+      <h1>Encontro Manas Investem — RJ</h1>
+      <p>28 de fevereiro de 2026 — 10h às 13h</p>
+    </div>
+  </section>
+
+  <!-- Event Detail -->
+  <section class="event-detail-section">
+    <div class="container">
+      <div class="event-detail-wrapper">
+        <div class="event-badges">
+          <span class="event-badge event-badge--date">28/02/2026 — 10h às 13h</span>
+          <span class="event-badge event-badge--location">Presencial — Ipanema, RJ</span>
+          <span class="event-badge event-badge--free">Gratuito</span>
+          <span class="event-badge event-badge--limited">Vagas Limitadas</span>
+        </div>
+
+        <h2>Encontro Manas Investem</h2>
+        <p>Um café com apresentação, exclusivo para mulheres, no qual falaremos sobre o panorama da participação feminina no mercado financeiro e ajudaremos aquelas que ainda não investem ou que já investem, apresentando conceitos básicos do mundo das finanças de forma leve e descontraída.</p>
+
+        <a href="#inscricao" class="btn btn--cta btn--large">
+          Quero me inscrever
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulário de Inscrição -->
+  <section id="inscricao" class="event-form-section">
+    <div class="container">
+      <div class="event-form-wrapper">
+        <p>Preencha o formulário abaixo para se inscrever. Nossas vagas são limitadas, por isso a inscrição não garante a vaga. A confirmação será enviada por e-mail; pedimos, gentilmente, que aguarde.</p>
+
+        <div class="google-form-container">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeFnWRk22eUQF0-W4P6LydJPiySp_GpTQpR6S5bq65ZyZ6j5Q/viewform?embedded=true" width="900" height="1500" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Confirmation -->
+  <section class="event-confirmation">
+    <div class="container">
+      <h2>Agradecemos a sua inscrição!</h2>
+      <p>Lembre-se: sua inscrição estará confirmada somente após o recebimento do e-mail de confirmação com o endereço do local. Isso ocorrerá em até uma semana antes da data de realização do evento.</p>
+      <p style="font-size: 0.95rem;">Dúvidas? Entre em contato conosco:</p>
+      <a href="mailto:contato@manasinvestem.com.br" class="btn btn--cta">contato@manasinvestem.com.br</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <img src="images/logo/logo-pink.png" alt="Manas Investem" class="footer-logo" />
+      <div class="footer-nav">
+        <a href="index.html">Início</a>
+        <a href="quem-somos.html">Quem Somos</a>
+        <a href="evento.html">Agenda</a>
+        <a href="contato.html">Contato</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://instagram.com/manasinvestem" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@manasinvestem" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.linkedin.com/company/manas-investem/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://substack.com/@manasinvestem" target="_blank" rel="noopener">Newsletter</a>
+      </div>
+      <p>&copy; <span id="year"></span> Manas Investem</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-item-dropdown > .nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        }
+      });
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
