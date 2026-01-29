@@ -20,9 +20,22 @@
   <style>
     /* Agenda Page Styles */
     .agenda-hero {
-      padding: 120px 24px 60px;
-      background: var(--blush);
+      position: relative;
+      padding: 200px 24px;
+      background: url('images/IMG_9254.jpg') center/cover no-repeat;
       text-align: center;
+    }
+
+    .agenda-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 222, 240, 0.55);
+    }
+
+    .agenda-hero .container {
+      position: relative;
+      z-index: 1;
     }
 
     .agenda-hero-logo {
@@ -33,13 +46,14 @@
 
     .agenda-hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
       font-weight: 700;
       color: var(--marsala);
       margin-bottom: 16px;
     }
 
     .agenda-hero p {
+      font-family: var(--font-display);
       font-size: 1.1rem;
       color: var(--marsala);
       max-width: 700px;
@@ -286,7 +300,6 @@
   <!-- Agenda Hero -->
   <section class="agenda-hero">
     <div class="container">
-      <img src="images/logo/logo-green.png" alt="Manas Investem" class="agenda-hero-logo" />
       <h1>Agenda de eventos</h1>
       <p>Algumas mulheres compram bolsas, outras mulheres vão à Bolsa e há mulheres que já descobriram como comprar bolsas (ou o que elas quiserem) com os rendimentos da Bolsa.</p>
     </div>
