@@ -22,7 +22,10 @@
     .agenda-hero {
       position: relative;
       padding: 200px 24px;
-      background: url('images/IMG_9254.jpg') center/cover no-repeat;
+      background-image: url('images/IMG_9254.jpg');
+      background-position: 85% center;
+      background-size: cover;
+      background-repeat: no-repeat;
       text-align: center;
     }
 
@@ -30,7 +33,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(255, 222, 240, 0.55);
+      background: rgba(255, 255, 255, 0.65);
     }
 
     .agenda-hero .container {
@@ -47,18 +50,25 @@
     .agenda-hero h1 {
       font-family: var(--font-display);
       font-size: clamp(2rem, 4.5vw, 3.5rem);
-      font-weight: 700;
+      font-weight: 400;
       color: var(--marsala);
       margin-bottom: 16px;
+      animation: fadeInUp 0.6s ease-out;
     }
 
     .agenda-hero p {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
+      font-family: var(--font-sans);
+      font-size: 1.35rem;
       color: var(--marsala);
-      max-width: 700px;
+      max-width: 750px;
       margin: 0 auto;
-      line-height: 1.7;
+      line-height: 1.8;
+      animation: fadeInUp 0.6s ease-out 0.15s both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Category Grid */
@@ -69,22 +79,23 @@
 
     .categories-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 24px;
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
     .category-col {
-      border: 2px solid var(--gray-200);
+      border: 2px solid var(--pink);
       border-radius: var(--radius-xl);
       overflow: hidden;
     }
 
     .category-header {
-      background: var(--marsala);
+      background: var(--pink);
       color: var(--white);
       padding: 16px 20px;
+      font-family: var(--font-sans);
       font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -93,15 +104,25 @@
     }
 
     .category-body {
-      padding: 20px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      min-height: 120px;
+      min-height: 80px;
+    }
+
+    .category-col--presencial .category-body {
+      background: rgba(224, 106, 155, 0.05);
+    }
+
+    .category-col--secondary .category-body {
+      background: rgba(255, 222, 240, 0.5);
     }
 
     .category-event {
-      font-size: 0.95rem;
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      font-weight: 500;
       color: var(--gray-700);
       line-height: 1.5;
     }
@@ -177,6 +198,7 @@
 
     .event-detail-wrapper > p {
       font-size: 1.1rem;
+      font-weight: 400;
       color: var(--gray-700);
       line-height: 1.7;
       max-width: 650px;
@@ -204,6 +226,8 @@
     }
 
     .event-form-wrapper > p {
+      font-size: 1.2rem;
+      font-weight: 400;
       color: var(--gray-600);
       margin-bottom: 32px;
       max-width: 600px;
@@ -301,22 +325,16 @@
   <section class="agenda-hero">
     <div class="container">
       <h1>Agenda de eventos</h1>
-      <p>Algumas mulheres compram bolsas, outras mulheres vão à Bolsa e há mulheres que já descobriram como comprar bolsas (ou o que elas quiserem) com os rendimentos da Bolsa.</p>
+      <p>No Manas Investem fazemos encontros periódicos presenciais e virtuais, bem como aulas para tratar de temas específicos relacionados à finanças pessoais femininas e mercado financeiro.</p>
     </div>
   </section>
 
   <!-- Categories Grid -->
-  <section class="agenda-categories">
+  <section class="agenda-categories" style="background: var(--blush);">
     <div class="container">
+      <h2 style="font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--marsala); margin-bottom: 32px; text-align: center;">Escolha seu evento e faça sua inscrição</h2>
       <div class="categories-grid">
-        <div class="category-col">
-          <div class="category-header">Aulas</div>
-          <div class="category-body">
-            <div class="category-event">_/03/2026 — "Como começar a investir no mercado financeiro?"</div>
-          </div>
-        </div>
-
-        <div class="category-col">
+        <div class="category-col category-col--presencial">
           <div class="category-header">Encontros Presenciais</div>
           <div class="category-body">
             <div class="category-event"><a href="evento-rj.html">28/02/2026 — Rio de Janeiro, 10h às 13h.</a></div>
@@ -324,13 +342,27 @@
           </div>
         </div>
 
-        <div class="category-col">
+        <div class="category-col category-col--secondary">
+          <div class="category-header">Aulas</div>
+          <div class="category-body">
+            <div class="category-event" style="color: var(--gray-400); font-style: italic;">Em breve</div>
+          </div>
+        </div>
+
+        <div class="category-col category-col--secondary">
           <div class="category-header">Encontros Virtuais</div>
           <div class="category-body">
             <div class="category-event" style="color: var(--gray-400); font-style: italic;">Em breve</div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="qs-quote" style="padding: 100px 24px; background: var(--yellow); text-align: center;">
+    <div class="container">
+      <blockquote style="font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 700; color: var(--pink); line-height: 1.5; max-width: 800px; margin: 0 auto;">&ldquo;Algumas mulheres compram bolsas, outras mulheres vão à Bolsa e há mulheres que já descobriram como comprar bolsas (ou o que elas quiserem) com os rendimentos da Bolsa.&rdquo;</blockquote>
     </div>
   </section>
 

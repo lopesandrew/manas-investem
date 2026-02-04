@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     .agenda-hero {
-      padding: 200px 24px;
+      padding: 140px 24px 40px;
       background: var(--blush);
       text-align: center;
     }
@@ -36,19 +36,27 @@
       font-weight: 700;
       color: var(--marsala);
       margin-bottom: 16px;
+      animation: fadeInUp 0.6s ease-out;
     }
 
     .agenda-hero p {
+      font-family: var(--font-display);
       font-size: 1.1rem;
       color: var(--marsala);
       max-width: 700px;
       margin: 0 auto;
       line-height: 1.7;
+      animation: fadeInUp 0.6s ease-out 0.15s both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .event-detail-section {
-      padding: 80px 24px;
-      background: var(--white);
+      padding: 20px 24px 80px;
+      background: var(--blush);
     }
 
     .event-detail-wrapper {
@@ -105,6 +113,7 @@
 
     .event-detail-wrapper > p {
       font-size: 1.1rem;
+      font-weight: 400;
       color: var(--gray-700);
       line-height: 1.7;
       max-width: 650px;
@@ -112,7 +121,7 @@
     }
 
     .event-form-section {
-      padding: 60px 24px 80px;
+      padding: 40px 24px 40px;
       background: var(--gray-50);
     }
 
@@ -123,6 +132,8 @@
     }
 
     .event-form-wrapper > p {
+      font-size: 1.2rem;
+      font-weight: 400;
       color: var(--gray-600);
       margin-bottom: 32px;
       max-width: 600px;
@@ -133,7 +144,7 @@
 
     .google-form-container iframe {
       width: 100%;
-      min-height: 500px;
+      min-height: 1650px;
       border: none;
       border-radius: var(--radius);
     }
@@ -253,7 +264,6 @@
     <div class="container">
       <div class="event-detail-wrapper">
         <div class="event-badges">
-          <span class="event-badge event-badge--date">06/03/2026 — 8h30 às 11h</span>
           <span class="event-badge event-badge--location">Presencial — São Paulo, SP</span>
           <span class="event-badge event-badge--free">Gratuito</span>
           <span class="event-badge event-badge--limited">Vagas Limitadas</span>
@@ -262,7 +272,7 @@
         <h2>Encontro Manas Investem</h2>
         <p>Um café com apresentação, exclusivo para mulheres, no qual falaremos sobre o panorama da participação feminina no mercado financeiro e ajudaremos aquelas que ainda não investem ou que já investem, apresentando conceitos básicos do mundo das finanças de forma leve e descontraída.</p>
 
-        <a href="#inscricao" class="btn btn--cta btn--large">
+        <a href="#inscricao" class="btn btn--primary btn--large">
           Quero me inscrever
         </a>
       </div>
@@ -292,7 +302,7 @@
       <h2>Agradecemos a sua inscrição!</h2>
       <p>Lembre-se: sua inscrição estará confirmada somente após o recebimento do e-mail de confirmação com o endereço do local. Isso ocorrerá em até uma semana antes da data de realização do evento.</p>
       <p style="font-size: 0.95rem;">Dúvidas? Entre em contato conosco:</p>
-      <a href="mailto:contato@manasinvestem.com.br" class="btn btn--cta">contato@manasinvestem.com.br</a>
+      <a href="mailto:contato@manasinvestem.com.br" class="btn btn--primary">contato@manasinvestem.com.br</a>
     </div>
   </section>
 
