@@ -19,3 +19,13 @@ Thumbs.db
 # Banco local (SQLite)
 *.sqlite
 *.db
+
+# Arquivos internos / documentação
+Site/
+docs/
+backend-futuro/
+*.pdf
+BACKLOG.md
+CONTINUAR-NO-VSCODE.md
+TEXTOS-SITE.md
+TEXTOS-SITE-GOOGLE-DOCS.txt
