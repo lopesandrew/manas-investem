@@ -14,6 +14,9 @@
   <meta property="og:title" content="Manas Investem — Educação financeira para mulheres" />
   <meta property="og:description" content="Um espaço feito por e para mulheres que querem começar a investir com segurança." />
   <meta property="og:url" content="https://manasinvestem.com.br" />
+  <meta property="og:image" content="https://manasinvestem.com.br/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="theme-color" content="#E06A9B" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -25,7 +28,7 @@
   <header class="header" id="header">
     <div class="container nav">
       <a href="index.html" class="brand">
-        <img src="images/logo/logo-pink.png" alt="Manas Investem" class="brand-logo" />
+                  <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="brand-logo" />
       </a>
 
       <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
@@ -49,11 +52,12 @@
     </div>
   </header>
 
+  <main id="main-content">
   <!-- Hero Section: green bg, yellow logo, quote -->
   <section class="hero">
     <div class="hero-content">
-      <img src="images/logo/logo-pink.png" alt="Manas Investem" class="hero-logo" />
-      <p class="hero-quote">O mito de que investir é coisa de homem é, de fato, isso, só um mito.</p>
+              <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="hero-logo" />
+      <h1 class="hero-quote">O mito de que investir é coisa de homem é, de fato, isso, só um mito.</h1>
     </div>
   </section>
 
@@ -87,15 +91,19 @@
         </a>
       </div>
       <div class="investem-split__photo">
-        <img src="images/foto-flavia-fernanda.png" alt="Manas Investem" />
+        <picture>
+          <source srcset="images/foto-flavia-fernanda.webp" type="image/webp" />
+          <img src="images/foto-flavia-fernanda.jpg" alt="Manas Investem" loading="lazy" />
+        </picture>
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <img src="images/logo/logo-pink.png" alt="Manas Investem" class="footer-logo" />
+              <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="footer-logo" />
       <div class="footer-nav">
         <a href="index.html">Início</a>
         <a href="quem-somos.html">Quem Somos</a>
