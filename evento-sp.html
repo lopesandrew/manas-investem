@@ -14,6 +14,9 @@
   <meta property="og:title" content="Encontro SP — Manas Investem" />
   <meta property="og:description" content="Encontro presencial Manas Investem em São Paulo. 06/03/2026, 8h30 às 11h." />
   <meta property="og:url" content="https://manasinvestem.com.br/evento-sp" />
+  <meta property="og:image" content="https://manasinvestem.com.br/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="theme-color" content="#E06A9B" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -21,7 +24,7 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     .agenda-hero {
-      padding: 160px 24px 120px;
+      padding: 160px 24px 0;
       min-height: 560px;
       display: flex;
       align-items: center;
@@ -61,7 +64,7 @@
     }
 
     .event-detail-section {
-      padding: 20px 24px 80px;
+      padding: 0 24px 80px;
       background: var(--blush);
     }
 
@@ -232,7 +235,7 @@
   <header class="header" id="header">
     <div class="container nav">
       <a href="index.html" class="brand">
-        <img src="images/logo/logo-pink.png" alt="Manas Investem" class="brand-logo" />
+                  <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="brand-logo" />
       </a>
 
       <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
@@ -256,12 +259,15 @@
     </div>
   </header>
 
+  <main id="main-content">
   <!-- Hero -->
   <section class="agenda-hero">
     <div class="container">
-      <img src="images/logo/logo-green.png" alt="Manas Investem" class="agenda-hero-logo" />
+      <picture>
+        <source srcset="images/logo/logo-green.webp" type="image/webp" />
+        <img src="images/logo/logo-green.png" alt="Manas Investem" class="agenda-hero-logo" />
+      </picture>
       <h1>Encontro Manas Investem — SP</h1>
-      <p>6 de março de 2026 — 8h30 às 11h</p>
     </div>
   </section>
 
@@ -275,7 +281,8 @@
           <span class="event-badge event-badge--limited">Vagas Limitadas</span>
         </div>
 
-        <h2>Encontro Manas Investem</h2>
+        <p style="font-size: 1.5rem; margin-top: 1.5rem;">6 de março de 2026 — 8h30 às 11h</p>
+
         <p>Um café com apresentação, exclusivo para mulheres, no qual falaremos sobre o panorama da participação feminina no mercado financeiro e ajudaremos aquelas que ainda não investem ou que já investem, apresentando conceitos básicos do mundo das finanças de forma leve e descontraída.</p>
 
         <a href="#inscricao" class="btn btn--primary btn--large">
@@ -311,11 +318,12 @@
       <a href="mailto:contato@manasinvestem.com.br" class="btn btn--primary">contato@manasinvestem.com.br</a>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <img src="images/logo/logo-pink.png" alt="Manas Investem" class="footer-logo" />
+              <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="footer-logo" />
       <div class="footer-nav">
         <a href="index.html">Início</a>
         <a href="quem-somos.html">Quem Somos</a>
