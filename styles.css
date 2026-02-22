@@ -2566,13 +2566,32 @@ h1, h2, h3, h4, h5, h6 {
    EVENT PAGES (SP, RJ)
 ================== */
 .agenda-hero {
+  position: relative;
   padding: 160px 24px 0;
   min-height: 560px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--blush);
+  background: var(--lilac);
   text-align: center;
+  overflow: hidden;
+}
+
+.agenda-hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: url('images/symbol/symbol-pink.png') center/80% no-repeat;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.agenda-hero .container {
+  position: relative;
+  z-index: 1;
 }
 
 .agenda-hero-logos {
@@ -2585,7 +2604,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .agenda-hero-logo {
-  height: 100px;
+  height: 150px;
   width: auto;
   margin-bottom: 24px;
 }
@@ -2603,7 +2622,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .agenda-hero-logo--ativa {
-  height: 60px;
+  height: 90px;
   width: auto;
 }
 
@@ -2689,6 +2708,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .event-detail-wrapper > p {
+  font-family: var(--font-sans);
   font-size: 1.1rem;
   font-weight: 400;
   color: var(--gray-700);
@@ -2788,11 +2808,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .agenda-hero-logo {
-    height: 70px;
+    height: 105px;
   }
 
   .agenda-hero-logo--ativa {
-    height: 40px;
+    height: 60px;
   }
 
   .event-detail-section {
