@@ -22,195 +22,13 @@
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    .agenda-hero {
-      padding: 160px 24px 0;
-      min-height: 560px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--blush);
-      text-align: center;
-    }
-
-    .agenda-hero-logo {
-      height: 100px;
-      width: auto;
-      margin-bottom: 24px;
-    }
-
-    .agenda-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      color: var(--marsala);
-      margin-bottom: 16px;
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    .agenda-hero p {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      color: var(--marsala);
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.7;
-      animation: fadeInUp 0.6s ease-out 0.15s both;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .event-detail-section {
-      padding: 0 24px 80px;
-      background: var(--blush);
-    }
-
-    .event-detail-wrapper {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .event-badges {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-
-    .event-badge {
-      display: inline-block;
-      padding: 10px 20px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border-radius: var(--radius-full);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .event-badge--date {
-      background: var(--lilac);
-      color: var(--marsala);
-    }
-
-    .event-badge--location {
-      background: var(--blue);
-      color: var(--marsala);
-    }
-
-    .event-badge--free {
-      background: var(--green);
-      color: var(--marsala);
-    }
-
-    .event-badge--limited {
-      background: var(--pink);
-      color: var(--white);
-    }
-
-    .event-detail-wrapper h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-      font-weight: 700;
-      color: var(--marsala);
-      margin-bottom: 20px;
-    }
-
-    .event-detail-wrapper > p {
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--gray-700);
-      line-height: 1.7;
-      max-width: 650px;
-      margin: 0 auto 32px;
-    }
-
-    .event-form-section {
-      padding: 40px 24px 40px;
-      background: var(--gray-50);
-    }
-
-    .event-form-wrapper {
-      max-width: 950px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .event-form-wrapper > p {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--gray-600);
-      margin-bottom: 32px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.7;
-    }
-
-    .google-form-container iframe {
-      width: 100%;
-      min-height: 1650px;
-      border: none;
-      border-radius: var(--radius);
-    }
-
-    .event-confirmation {
-      padding: 80px 24px;
-      background: var(--blush);
-      text-align: center;
-    }
-
-    .event-confirmation h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-      font-weight: 700;
-      color: var(--marsala);
-      margin-bottom: 16px;
-    }
-
-    .event-confirmation p {
-      font-size: 1.05rem;
-      color: var(--marsala);
-      max-width: 600px;
-      margin: 0 auto 32px;
-      line-height: 1.7;
-    }
-
-    .event-confirmation .btn {
-      display: inline-flex;
-    }
-
-    .agenda-footer {
-      padding: 32px 24px;
-      background: var(--marsala);
-      text-align: center;
-    }
-
-    .agenda-footer p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.7);
-    }
-
-    .agenda-footer a {
-      color: var(--pink);
-      text-decoration: none;
-    }
-
-    .agenda-footer a:hover {
-      color: var(--white);
-    }
-  </style>
 </head>
 <body>
   <!-- Header -->
   <header class="header" id="header">
     <div class="container nav">
       <a href="index.html" class="brand">
-                  <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="brand-logo" />
+        <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="brand-logo" />
       </a>
 
       <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
@@ -274,7 +92,7 @@
         <p>Preencha o formulário abaixo para se inscrever. Nossas vagas são limitadas, por isso a inscrição não garante a vaga. A confirmação será enviada por e-mail; pedimos, gentilmente, que aguarde.</p>
 
         <div class="google-form-container">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeFnWRk22eUQF0-W4P6LydJPiySp_GpTQpR6S5bq65ZyZ6j5Q/viewform?embedded=true" width="900" height="1500" frameborder="0" marginheight="0" marginwidth="0" sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-storage-access-by-user-activation" allow="storage-access">Carregando…</iframe>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeFnWRk22eUQF0-W4P6LydJPiySp_GpTQpR6S5bq65ZyZ6j5Q/viewform?embedded=true" title="Formulário de inscrição — Encontro RJ" loading="lazy" sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-storage-access-by-user-activation" allow="storage-access">Carregando…</iframe>
         </div>
       </div>
     </div>
@@ -294,7 +112,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-              <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="footer-logo" />
+      <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="footer-logo" />
       <div class="footer-nav">
         <a href="index.html">Início</a>
         <a href="quem-somos.html">Quem Somos</a>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Encontro SP — Manas Investem</title>
-  <meta name="description" content="Encontro presencial Manas Investem em São Paulo. 06/03/2026, 8h30 às 11h. Inscreva-se!" />
+  <meta name="description" content="Manas Investem e Ativa Investimentos convidam para um café da manhã em comemoração ao Dia Internacional das Mulheres. 06/03/2026 em São Paulo. Inscreva-se!" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -12,7 +12,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Encontro SP — Manas Investem" />
-  <meta property="og:description" content="Encontro presencial Manas Investem em São Paulo. 06/03/2026, 8h30 às 11h." />
+  <meta property="og:description" content="Manas Investem e Ativa Investimentos convidam para um café da manhã em comemoração ao Dia Internacional das Mulheres. 06/03/2026 em São Paulo." />
   <meta property="og:url" content="https://manasinvestem.com.br/evento-sp" />
   <meta property="og:image" content="https://manasinvestem.com.br/images/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -22,220 +22,13 @@
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    .agenda-hero {
-      padding: 160px 24px 0;
-      min-height: 560px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--blush);
-      text-align: center;
-    }
-
-    .agenda-hero-logo {
-      height: 100px;
-      width: auto;
-      margin-bottom: 24px;
-    }
-
-    .agenda-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      color: var(--marsala);
-      margin-bottom: 16px;
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    .agenda-hero p {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      color: var(--marsala);
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.7;
-      animation: fadeInUp 0.6s ease-out 0.15s both;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .event-detail-section {
-      padding: 0 24px 80px;
-      background: var(--blush);
-    }
-
-    .event-detail-wrapper {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .event-badges {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-
-    .event-badge {
-      display: inline-block;
-      padding: 10px 20px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border-radius: var(--radius-full);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .event-badge--date {
-      background: var(--lilac);
-      color: var(--marsala);
-    }
-
-    .event-badge--location {
-      background: var(--blue);
-      color: var(--marsala);
-    }
-
-    .event-badge--free {
-      background: var(--green);
-      color: var(--marsala);
-    }
-
-    .event-badge--limited {
-      background: var(--pink);
-      color: var(--white);
-    }
-
-    .event-detail-wrapper h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-      font-weight: 700;
-      color: var(--marsala);
-      margin-bottom: 20px;
-    }
-
-    .event-detail-wrapper > p {
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--gray-700);
-      line-height: 1.7;
-      max-width: 650px;
-      margin: 0 auto 32px;
-    }
-
-    .event-form-section {
-      padding: 40px 24px 40px;
-      background: var(--gray-50);
-    }
-
-    .event-form-wrapper {
-      max-width: 950px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .event-form-wrapper > p {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--gray-600);
-      margin-bottom: 32px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.7;
-    }
-
-    .google-form-container iframe {
-      width: 100%;
-      min-height: 1650px;
-      border: none;
-      border-radius: var(--radius);
-    }
-
-    .form-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 24px;
-      background: var(--white);
-      border-radius: var(--radius);
-      border: 2px dashed var(--gray-200);
-      text-align: center;
-      min-height: 350px;
-    }
-
-    .form-placeholder p {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--gray-600);
-      margin-bottom: 8px;
-    }
-
-    .form-placeholder span {
-      font-size: 0.9rem;
-      color: var(--gray-500);
-    }
-
-    .event-confirmation {
-      padding: 80px 24px;
-      background: var(--blush);
-      text-align: center;
-    }
-
-    .event-confirmation h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-      font-weight: 700;
-      color: var(--marsala);
-      margin-bottom: 16px;
-    }
-
-    .event-confirmation p {
-      font-size: 1.05rem;
-      color: var(--marsala);
-      max-width: 600px;
-      margin: 0 auto 32px;
-      line-height: 1.7;
-    }
-
-    .event-confirmation .btn {
-      display: inline-flex;
-    }
-
-    .agenda-footer {
-      padding: 32px 24px;
-      background: var(--marsala);
-      text-align: center;
-    }
-
-    .agenda-footer p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.7);
-    }
-
-    .agenda-footer a {
-      color: var(--pink);
-      text-decoration: none;
-    }
-
-    .agenda-footer a:hover {
-      color: var(--white);
-    }
-  </style>
 </head>
 <body>
   <!-- Header -->
   <header class="header" id="header">
     <div class="container nav">
       <a href="index.html" class="brand">
-                  <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="brand-logo" />
+        <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="brand-logo" />
       </a>
 
       <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
@@ -263,11 +56,14 @@
   <!-- Hero -->
   <section class="agenda-hero">
     <div class="container">
-      <picture>
-        <source srcset="images/logo/logo-green.webp" type="image/webp" />
-        <img src="images/logo/logo-green.png" alt="Manas Investem" class="agenda-hero-logo" />
-      </picture>
-      <h1>Encontro Manas Investem — SP</h1>
+      <div class="agenda-hero-logos">
+        <picture>
+          <source srcset="images/logo/logo-green.webp" type="image/webp" />
+          <img src="images/logo/logo-green.png" alt="Manas Investem" class="agenda-hero-logo" />
+        </picture>
+        <span class="logo-separator">+</span>
+        <img src="images/logo/logo-ativa.png" alt="Ativa Investimentos" class="agenda-hero-logo--ativa" />
+      </div>
     </div>
   </section>
 
@@ -276,14 +72,23 @@
     <div class="container">
       <div class="event-detail-wrapper">
         <div class="event-badges">
-          <span class="event-badge event-badge--location">Presencial — São Paulo, SP</span>
+          <span class="event-badge event-badge--location">Presencial — Cidade Monções, SP</span>
           <span class="event-badge event-badge--free">Gratuito</span>
           <span class="event-badge event-badge--limited">Vagas Limitadas</span>
         </div>
 
-        <p style="font-size: 1.5rem; margin-top: 1.5rem;">6 de março de 2026 — 8h30 às 11h</p>
+        <div class="event-info-card">
+          <div class="event-info-item">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"/></svg>
+            <span>6 de março de 2026 — a partir das 8h30</span>
+          </div>
+          <div class="event-info-item">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            <span>Rua Surubim 373, 9º andar, Cidade Monções — São Paulo, SP</span>
+          </div>
+        </div>
 
-        <p>Um café com apresentação, exclusivo para mulheres, no qual falaremos sobre o panorama da participação feminina no mercado financeiro e ajudaremos aquelas que ainda não investem ou que já investem, apresentando conceitos básicos do mundo das finanças de forma leve e descontraída.</p>
+        <p>Manas Investem e Ativa Investimentos se unem para comemorar o Dia Internacional das Mulheres, com um café da manhã e experiência imersiva, e bate-papo sobre a participação feminina no mercado financeiro e como as mulheres podem usar seus investimentos como ferramenta de independência e autonomia financeira.</p>
 
         <a href="#inscricao" class="btn btn--primary btn--large">
           Quero me inscrever
@@ -299,11 +104,7 @@
         <p>Preencha o formulário abaixo para se inscrever. Nossas vagas são limitadas, por isso a inscrição não garante a vaga. A confirmação será enviada por e-mail; pedimos, gentilmente, que aguarde.</p>
 
         <div class="google-form-container">
-          <!-- TODO: Substituir pelo link do Google Form do evento SP -->
-          <div class="form-placeholder">
-            <p>Formulário em breve</p>
-            <span>O formulário de inscrição para o evento de São Paulo será disponibilizado em breve.</span>
-          </div>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfE_iVdR4-benScoeN49FgCqK9yhbFdrbLwxKWDVzRjRhaitQ/viewform?embedded=true" title="Formulário de inscrição — Encontro SP" loading="lazy" sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-storage-access-by-user-activation" allow="storage-access">Carregando…</iframe>
         </div>
       </div>
     </div>
@@ -323,7 +124,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-              <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="footer-logo" />
+      <img src="images/logo/logo-pink.svg" alt="Manas Investem" class="footer-logo" />
       <div class="footer-nav">
         <a href="index.html">Início</a>
         <a href="quem-somos.html">Quem Somos</a>
