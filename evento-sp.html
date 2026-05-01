@@ -41,10 +41,16 @@
         <a href="index.html" class="nav-link">Início</a>
         <a href="quem-somos.html" class="nav-link">Quem Somos</a>
         <div class="nav-item-dropdown">
-          <a href="evento.html" class="nav-link nav-link--active">Agenda</a>
+          <span class="nav-link nav-link--label nav-link--active" tabindex="0" aria-haspopup="true">Agenda</span>
           <div class="nav-dropdown">
-            <a href="evento-rj.html" class="nav-dropdown-link">Encontro RJ — 28/02</a>
-            <a href="evento-sp.html" class="nav-dropdown-link">Encontro SP — 06/03</a>
+            <span class="nav-dropdown-link nav-dropdown-link--disabled" aria-disabled="true">Aulas <small>Em breve</small></span>
+            <div class="nav-dropdown-sub-wrapper">
+              <span class="nav-dropdown-link nav-dropdown-link--has-sub" tabindex="0" aria-haspopup="true">Encontros</span>
+              <div class="nav-dropdown-sub">
+                <a href="evento.html" class="nav-dropdown-link">Futuros</a>
+                <a href="eventos-passados.html" class="nav-dropdown-link">Passados</a>
+              </div>
+            </div>
           </div>
         </div>
         <a href="contato.html" class="nav-link">Contato</a>
@@ -90,20 +96,9 @@
 
         <p>Manas Investem e Ativa Investimentos se unem para comemorar o Dia Internacional das Mulheres, com um café da manhã e experiência imersiva, e bate-papo sobre a participação feminina no mercado financeiro e como as mulheres podem usar seus investimentos como ferramenta de independência e autonomia financeira.</p>
 
-        <a href="#inscricao" class="btn btn--primary btn--large">
-          Lista de Espera
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Formulário de Inscrição -->
-  <section id="inscricao" class="event-form-section">
-    <div class="container">
-      <div class="event-form-wrapper">
-        <div class="google-form-container">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd7xLvap5dC_udx6Pq4FRKoImiu69m7GWlaqHXsvF7C5ed-5g/viewform?embedded=true" title="Lista de espera — Encontro SP" loading="lazy" sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-storage-access-by-user-activation" allow="storage-access">Carregando…</iframe>
-        </div>
+        <span class="btn btn--primary btn--large" style="opacity: 0.6; cursor: default; pointer-events: none;">
+          Evento Encerrado
+        </span>
       </div>
     </div>
   </section>
@@ -161,6 +156,17 @@
       link.addEventListener('click', function(e) {
         if (window.innerWidth <= 768) {
           e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        }
+      });
+    });
+
+    // Mobile sub-dropdown toggle (Encontros)
+    document.querySelectorAll('.nav-dropdown-sub-wrapper > .nav-dropdown-link--has-sub').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          e.stopPropagation();
           this.parentElement.classList.toggle('open');
         }
       });

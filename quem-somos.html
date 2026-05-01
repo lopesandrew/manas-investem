@@ -114,13 +114,12 @@
       grid-template-columns: 1fr 1fr;
       gap: 0;
       max-width: none;
-      align-items: center;
+      align-items: stretch;
     }
 
     .qs-founder-photo {
       position: relative;
       overflow: hidden;
-      max-height: 1125px;
     }
 
     .qs-founder-photo img {
@@ -206,10 +205,16 @@
         <a href="index.html" class="nav-link">Início</a>
         <a href="quem-somos.html" class="nav-link nav-link--active">Quem Somos</a>
         <div class="nav-item-dropdown">
-          <a href="evento.html" class="nav-link">Agenda</a>
+          <span class="nav-link nav-link--label" tabindex="0" aria-haspopup="true">Agenda</span>
           <div class="nav-dropdown">
-            <a href="evento-rj.html" class="nav-dropdown-link">Encontro RJ — 28/02</a>
-            <a href="evento-sp.html" class="nav-dropdown-link">Encontro SP — 06/03</a>
+            <span class="nav-dropdown-link nav-dropdown-link--disabled" aria-disabled="true">Aulas <small>Em breve</small></span>
+            <div class="nav-dropdown-sub-wrapper">
+              <span class="nav-dropdown-link nav-dropdown-link--has-sub" tabindex="0" aria-haspopup="true">Encontros</span>
+              <div class="nav-dropdown-sub">
+                <a href="evento.html" class="nav-dropdown-link">Futuros</a>
+                <a href="eventos-passados.html" class="nav-dropdown-link">Passados</a>
+              </div>
+            </div>
           </div>
         </div>
         <a href="contato.html" class="nav-link">Contato</a>
@@ -230,7 +235,7 @@
   <section class="qs-quote">
     <div class="container">
       <blockquote>&ldquo;Nosso objetivo é levar conteúdo financeiro ao público feminino, aumentando o número de mulheres investindo no mercado financeiro e diminuindo a desigualdade de gênero no Brasil.&rdquo;</blockquote>
-      <cite>Flávia Lanat, fundadora do Manas Investem</cite>
+      <cite>Flávia Lanat, fundadora Manas Investem</cite>
     </div>
   </section>
 
@@ -240,14 +245,12 @@
       <div class="qs-founder-photo">
         <picture>
           <source srcset="images/flavia-lanat.webp" type="image/webp" />
-          <img src="images/flavia-lanat.jpg" alt="Flávia Lanat, fundadora do Manas Investem" loading="lazy" />
+          <img src="images/flavia-lanat.jpg" alt="Flávia Lanat, fundadora Manas Investem" loading="lazy" />
         </picture>
       </div>
       <div class="qs-founder-text">
         <h2>A mana por trás do Manas Investem</h2>
-        <p><strong>Flávia Lanat</strong> é advogada formada pela PUC-Rio, com LL.M. em Resolução de Conflitos pela IE Law School e MBA pela IE Business School (Madrid), onde foi contemplada com a bolsa "Jovens Líderes da América Latina". Sua trajetória profissional inclui 13 anos de atuação em disputas de direito empresarial e mercado de capitais para bancos, fundos e corretoras.</p>
-        <p>Apaixonada por finanças pessoais e investimentos, começou a investir aos 14 anos, por influência de seu pai. Nos últimos anos, ao falar sobre investimentos com outras mulheres, percebeu que o mercado financeiro era, para muitas, uma realidade distante. De acordo com dados da B3, em dezembro de 2025 havia 6,2 milhões de investidores ativos na Bolsa, sendo 4,6 milhões de homens e apenas 1,6 milhão de mulheres. Foi conjugando suas experiências pessoais e profissionais que percebeu a importância de vivermos em uma sociedade com mais mulheres financeiramente independentes e investindo no mercado financeiro.</p>
-        <p>Hoje, combina sua experiência jurídica com seu conhecimento em finanças para transmitir conteúdo financeiro ao público feminino, dedicando-se integralmente à missão de reduzir o <em>gap</em> de gênero na Bolsa de Valores.</p>
+        <p><strong>Flávia Lanat</strong> é advogada formada pela PUC-Rio, com LL.M. em Resolução de Conflitos pela IE Law School e MBA pela IE Business School (Madrid), onde foi contemplada com a bolsa "Jovens Líderes da América Latina". Sua trajetória profissional inclui 13 anos de atuação em disputas de direito empresarial e mercado de capitais para bancos, fundos e corretoras. Apaixonada por finanças pessoais e investimentos, começou a investir aos 14 anos, por influência de seu pai. Nos últimos anos, ao falar sobre investimentos com outras mulheres, percebeu que o mercado financeiro era, para muitas, uma realidade distante. De acordo com dados da B3, em dezembro de 2025 havia 6,2 milhões de investidores ativos na Bolsa, sendo 4,6 milhões de homens e apenas 1,6 milhão de mulheres. Foi conjugando suas experiências pessoais e profissionais que percebeu a importância de vivermos em uma sociedade com mais mulheres financeiramente independentes e investindo no mercado financeiro. Hoje, combina sua experiência jurídica com seu conhecimento em finanças para transmitir conteúdo financeiro ao público feminino, dedicando-se integralmente à missão de reduzir o <em>gap</em> de gênero na Bolsa de Valores.</p>
       </div>
     </div>
   </section>
@@ -297,6 +300,17 @@
       link.addEventListener('click', function(e) {
         if (window.innerWidth <= 768) {
           e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        }
+      });
+    });
+
+    // Mobile sub-dropdown toggle (Encontros)
+    document.querySelectorAll('.nav-dropdown-sub-wrapper > .nav-dropdown-link--has-sub').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          e.stopPropagation();
           this.parentElement.classList.toggle('open');
         }
       });

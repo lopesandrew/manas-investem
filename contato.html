@@ -144,10 +144,16 @@
         <a href="index.html" class="nav-link">Início</a>
         <a href="quem-somos.html" class="nav-link">Quem Somos</a>
         <div class="nav-item-dropdown">
-          <a href="evento.html" class="nav-link">Agenda</a>
+          <span class="nav-link nav-link--label" tabindex="0" aria-haspopup="true">Agenda</span>
           <div class="nav-dropdown">
-            <a href="evento-rj.html" class="nav-dropdown-link">Encontro RJ — 28/02</a>
-            <a href="evento-sp.html" class="nav-dropdown-link">Encontro SP — 06/03</a>
+            <span class="nav-dropdown-link nav-dropdown-link--disabled" aria-disabled="true">Aulas <small>Em breve</small></span>
+            <div class="nav-dropdown-sub-wrapper">
+              <span class="nav-dropdown-link nav-dropdown-link--has-sub" tabindex="0" aria-haspopup="true">Encontros</span>
+              <div class="nav-dropdown-sub">
+                <a href="evento.html" class="nav-dropdown-link">Futuros</a>
+                <a href="eventos-passados.html" class="nav-dropdown-link">Passados</a>
+              </div>
+            </div>
           </div>
         </div>
         <a href="contato.html" class="nav-link nav-link--active">Contato</a>
@@ -222,6 +228,17 @@
       link.addEventListener('click', function(e) {
         if (window.innerWidth <= 768) {
           e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        }
+      });
+    });
+
+    // Mobile sub-dropdown toggle (Encontros)
+    document.querySelectorAll('.nav-dropdown-sub-wrapper > .nav-dropdown-link--has-sub').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          e.stopPropagation();
           this.parentElement.classList.toggle('open');
         }
       });
