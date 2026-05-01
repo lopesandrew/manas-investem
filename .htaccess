@@ -1,0 +1,3 @@
+# Redirecionar favicon.ico para favicon.svg
+RewriteEngine On
+RewriteRule ^favicon\.ico$ favicon.svg [L,R=301]
