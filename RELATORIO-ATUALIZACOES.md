@@ -169,6 +169,17 @@ Início | Quem Somos | Agenda ▾ | Contato
 
 ---
 
+## Ajustes pós-revisão da Flávia (02/05/2026)
+
+Depois que a Flávia revisou a versão de staging, ela pediu mais 6 acertos pequenos. Todos aplicados:
+
+1. **Quem Somos — formação acadêmica:** "MBA pela IE Business School" → **"certificação de MBA pela IE Business School"** (a Flávia esclareceu que é um programa específico da IE, não o MBA full).
+2. **Quem Somos — trajetória:** "13 anos de atuação em disputas" → **"15 anos de atuação em contencioso"**.
+3. **Eventos Passados — Ativa Investimentos:** removidas as 2 últimas fotos (de 10 → 8 fotos no grid).
+4. **Eventos Passados — Lauro Rabha:** removida a última foto (de 5 → 4).
+5. **Eventos Passados — Coquetel SP 26/11:** removida a 3ª foto (de 9 → 8). As demais foram renumeradas em sequência (sem buracos).
+6. **Eventos Passados — Café da manhã RJ 04/10:** removida a última foto (de 13 → 12).
+
 ## Ajustes finais (após double-check com o briefing)
 
 Conferi tudo de novo cotejando com o Word e o PDF originais. Apliquei 1 acerto:
